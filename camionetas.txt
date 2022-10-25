@@ -1,0 +1,2 @@
+nro_chasis nro_motor color marca modelo anio traccion tpo_cabina
+12 34 rojo fors ranger 2022 4x4 simple

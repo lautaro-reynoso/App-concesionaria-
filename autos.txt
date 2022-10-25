@@ -1,0 +1,2 @@
+nro_chasis nro_motor marca color modelo anio cant_puertas
+200 123 ford rojo fiesta 2002 3
