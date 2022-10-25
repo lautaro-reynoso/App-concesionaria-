@@ -363,7 +363,7 @@ public class Eliminar extends javax.swing.JPanel {
                                 if(Vehiculo.vehiculo.get(j) instanceof Auto){
                                     Auto ab = (Auto)Vehiculo.vehiculo.get(j);
                                     auttsb.write("\n");
-                                    auttsb.write(ab.getCant_puertas() + " " + ab.getNro_chasis() + " " + ab.getNro_motor() + " " + ab.getMarca() + " " + ab.getColor() + " " + ab.getModelo() + " " + ab.getAnio());
+                                    auttsb.write(ab.getNro_chasis() + " " + ab.getNro_motor() + " " + ab.getMarca() + " " + ab.getColor() + " " + ab.getModelo() + " " + ab.getAnio()+ " " + ab.getCant_puertas());
                                     
                                 }
                                 

@@ -36,6 +36,7 @@ public class Tablas extends javax.swing.JPanel {
 
         initComponents();
         MuestraTabla();
+        
 
         
         
@@ -52,17 +53,38 @@ public class Tablas extends javax.swing.JPanel {
 
     }
 
-    public void colormasvendido() {
-        if (Vehiculo.vehiculo.size() != 0) {
-            String arr[] = new String[Vehiculo.vehiculo.size()];
-
+    public static void   colormasvendido() {
+       Colores array[] = new Colores[4];
+        
+        if (Vehiculo.vehiculo.size()!=0){
+            
+            
+            ArrayList <String> ar = new ArrayList();
+            
             for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
-
-                arr[i] = Vehiculo.vehiculo.get(i).getColor();
+                
+                ar.add(Vehiculo.vehiculo.get(i).getColor());
             }
-            for (int i = 0; i < arr.length; i++) {
-
+            int verde = Collections.frequency(ar, "verde");
+            int azul = Collections.frequency(ar, "azul");
+            int blanco = Collections.frequency(ar, "blanco");
+            int negro = Collections.frequency(ar, "negro");
+            
+            array[0] = new Colores("verde",verde);
+            array[1] = new Colores("azul",azul);
+            array[2] = new Colores("blanco",blanco);
+            array[3] = new Colores("negro",negro);
+             for (int i = 0; i < 4; i++) {
+              System.out.println(array[i]);   
             }
+             System.out.println("\n");
+            
+            Arrays.sort(array);
+            
+            top1.setText(array[3].getNombre());
+            top2.setText(array[2].getNombre());
+            top3.setText(array[1].getNombre());
+            
         }
     }
 
@@ -303,9 +325,9 @@ public class Tablas extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        top1 = new javax.swing.JLabel();
+        top2 = new javax.swing.JLabel();
+        top3 = new javax.swing.JLabel();
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -411,11 +433,11 @@ public class Tablas extends javax.swing.JPanel {
 
         jLabel4.setText("Top 3 colores:");
 
-        jLabel5.setText("jLabel5");
+        top1.setText("jLabel5");
 
-        jLabel6.setText("jLabel6");
+        top2.setText("jLabel6");
 
-        jLabel7.setText("jLabel7");
+        top3.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -433,25 +455,26 @@ public class Tablas extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(54, 54, 54))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(78, 78, 78))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(top3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(top1, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                                    .addComponent(top2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(60, 60, 60))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel5)
+                .addComponent(top1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -462,9 +485,9 @@ public class Tablas extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addComponent(top2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
+                        .addComponent(top3)
                         .addGap(24, 24, 24)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -526,9 +549,6 @@ public class Tablas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -538,5 +558,8 @@ public class Tablas extends javax.swing.JPanel {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable tab_a;
     private javax.swing.JTable tab_c;
+    public static javax.swing.JLabel top1;
+    private static javax.swing.JLabel top2;
+    private static javax.swing.JLabel top3;
     // End of variables declaration//GEN-END:variables
 }

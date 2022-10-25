@@ -15,13 +15,15 @@ import interfaces.Principal;
 
 public class Main {
 
+    
     public static void main(String args[]) {
+        
 
         Vehiculo.vehiculo.clear();
 
         Tablas.CargadeAutosArchivo();
         Tablas.CargadeCamionetasArchivo();
-
+        
         FlatLightLaf.setup();
 
         java.awt.EventQueue.invokeLater(new Runnable() {

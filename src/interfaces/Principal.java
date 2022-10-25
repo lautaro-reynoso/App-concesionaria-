@@ -32,7 +32,7 @@ public class Principal extends javax.swing.JFrame {
 
         initComponents();
 
-        MostrarPanel(tabla);
+        MostrarPanel(carga);
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
 
     }
@@ -188,7 +188,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI ", 0, 12));
         jLabel1.setFont(new java.awt.Font("Segoe UI ", 0, 12));
   
-      
+        Tablas.colormasvendido();
         
         MostrarPanel(tabla);
 
