@@ -84,8 +84,6 @@ public void MostrarPanel(JPanel p) {
         color1 = new javax.swing.JComboBox<>();
         Buscador = new javax.swing.JTextField();
         B_buscar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         jLabel10.setText("Año");
 
@@ -249,19 +247,6 @@ public void MostrarPanel(JPanel p) {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -273,13 +258,8 @@ public void MostrarPanel(JPanel p) {
                     .addComponent(B_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(350, 350, 350))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(134, 134, 134)
+                .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -289,9 +269,7 @@ public void MostrarPanel(JPanel p) {
                 .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(B_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -319,10 +297,13 @@ public void MostrarPanel(JPanel p) {
                 modelo1.setText(cc.getModelo());
            
                 anio1.setText(cc.getAnio());
-             
+                
+                
   
                 cabina1.setText("nulo");
                 cabina1.setEnabled(false);
+                traccion1.setEnabled(false);
+                
                 
                 
                 
@@ -343,6 +324,7 @@ public void MostrarPanel(JPanel p) {
                 anio1.setText(cb.getAnio());
   
                 puertas1.setEnabled(false);
+                traccion1.setEnabled(true);
         
                 cabina1.setText(cb.getTpo_cabina());
                
@@ -369,9 +351,11 @@ public void MostrarPanel(JPanel p) {
 
         try {
             if (cabina1.getText().equals("nulo")){
-                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 1 );
+                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),"nulo", 1 );
             }
-            Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 2 );
+            else{
+                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 2 );
+            }
 
         }
 
@@ -534,8 +518,6 @@ public void MostrarPanel(JPanel p) {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> marca1;
     private javax.swing.JTextField modelo1;
     private javax.swing.JTextField n_chasis1;

@@ -1,2 +1,3 @@
 nro_chasis nro_motor color marca modelo anio traccion tpo_cabina
-9 1 verde fiat 124 124 4x4 doble
+90 12 azul ford 124 2016 delantera doble
+5 2 negro ford 2001 ads 4x4 simple

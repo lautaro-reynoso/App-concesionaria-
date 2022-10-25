@@ -1,3 +1,4 @@
 nro_chasis nro_motor marca color modelo anio cant_puertas
-345 234 ford blanco dfg fgh 4
 1276 324 ford blanco sdf fgh 4
+345 123 ford azul fiesta 2020 1
+4 3 ford blanco asd f 1
