@@ -69,6 +69,7 @@ public class Cargar extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         anio_c = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         enviar_btn1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -115,6 +116,13 @@ public class Cargar extends javax.swing.JPanel {
         cuil_v = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel31 = new javax.swing.JLabel();
+
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MousePressed(evt);
+            }
+        });
 
         jLabel8.setText("Tipo de cabina");
 
@@ -143,6 +151,8 @@ public class Cargar extends javax.swing.JPanel {
         });
 
         jLabel15.setText("Año:");
+
+        jLabel28.setText(null);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -180,7 +190,9 @@ public class Cargar extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +229,9 @@ public class Cargar extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(anio_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -247,7 +261,7 @@ public class Cargar extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(enviar_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(181, Short.MAX_VALUE))
@@ -444,6 +458,8 @@ public class Cargar extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel31.setText(null);
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -482,7 +498,10 @@ public class Cargar extends javax.swing.JPanel {
                         .addComponent(fecha_v)
                         .addComponent(tipo_moneda_v)
                         .addComponent(cuil_v))
-                    .addComponent(enviar_btn2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addGap(58, 58, 58)
+                        .addComponent(enviar_btn2)))
                 .addContainerGap())
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
         );
@@ -492,7 +511,8 @@ public class Cargar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
@@ -582,12 +602,8 @@ public class Cargar extends javax.swing.JPanel {
 
     private void enviar_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btnMousePressed
 
-      
-
-        jLabel30.setText("Enviado con exito.");
-
         CargadeAutosInterfaz();
-        
+
         TablaVentas();
 
 
@@ -603,7 +619,7 @@ public class Cargar extends javax.swing.JPanel {
     }//GEN-LAST:event_nro_motor_cActionPerformed
 
     private void enviar_btn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btn1MousePressed
-        jLabel27.setText("Enviado con exito.");
+
         CargadeCamionetasInterfaz();
         TablaVentas();
 
@@ -634,9 +650,12 @@ public class Cargar extends javax.swing.JPanel {
             color.setText(null);
             modelo.setText(null);
             anio.setText(null);
+            jLabel30.setText("Enviado con exito.");
 
         } catch (IOException ex) {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (java.lang.NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
@@ -661,9 +680,7 @@ public class Cargar extends javax.swing.JPanel {
             Vehiculo.vehiculo.add(camioneta);
 
             camionetasb.close();
-            
-            
-            
+
             nro_chasis_c.setText(null);
             nro_motor_c.setText(null);
             color_c.setText(null);
@@ -672,10 +689,12 @@ public class Cargar extends javax.swing.JPanel {
             anio_c.setText(null);
             traccion_c.setText(null);
             tpo_cabina_c.setText(null);
-            
 
+            jLabel28.setText("Enviado con exito.");
         } catch (IOException ex) {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (java.lang.NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
@@ -714,9 +733,15 @@ public class Cargar extends javax.swing.JPanel {
             monto_v.setText(null);
             fecha_v.setText(null);
             tipo_moneda_v.setText(null);
+            
+                 jLabel31.setText("Enviado con exito.");
 
         } catch (IOException ex) {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (java.lang.NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
+             javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
@@ -757,6 +782,13 @@ public class Cargar extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jPanel3MouseEntered
 
+    private void jTabbedPane1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MousePressed
+        jLabel28.setText(null);
+        jLabel30.setText(null);
+
+
+    }//GEN-LAST:event_jTabbedPane1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anio;
@@ -792,9 +824,11 @@ public class Cargar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
