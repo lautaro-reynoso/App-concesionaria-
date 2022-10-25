@@ -32,6 +32,9 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
 
         MostrarPanel(tabla);
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        
+        
 
     }
 
@@ -63,8 +66,10 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
 
+        jLabel1.setBackground(new java.awt.Color(0, 204, 255));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CARGAR");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -74,6 +79,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("MODIFICAR");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -83,6 +89,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("ELIMINAR");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -92,6 +99,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("MOSTRAR");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -153,20 +161,36 @@ public class Principal extends javax.swing.JFrame {
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
         carga.TablaVentas();
         MostrarPanel(carga);
+        jLabel1.setBackground(new java.awt.Color(0, 204, 145));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+        jLabel2.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel3.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel4.setFont(new java.awt.Font("Segoe UI ", 0, 12));
     }//GEN-LAST:event_jLabel1MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+         jLabel2.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel3.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel1.setFont(new java.awt.Font("Segoe UI ", 0, 12));
         MostrarPanel(tabla);
-       
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+         jLabel1.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel3.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel4.setFont(new java.awt.Font("Segoe UI ", 0, 12));
         
         MostrarPanel(modificar);
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
+         jLabel2.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel1.setFont(new java.awt.Font("Segoe UI ", 0, 12));
+        jLabel4.setFont(new java.awt.Font("Segoe UI ", 0, 12));
         MostrarPanel(eliminar);
         eliminar.cargade_camioneta();
         eliminar.cargade_auto();
