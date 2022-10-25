@@ -41,12 +41,12 @@ public final class Modificar extends javax.swing.JPanel {
     public void setear(){
         n_chasis1.setText(null);
         n_motor1.setText(null);
-        marca1.setText(null);
+  
         modelo1.setText(null);
-        color1.setText(null);
+      
         anio1.setText(null);
-        puertas1.setText(null);
-        traccion1.setText(null);
+    
+    
         cabina1.setText(null);
     }
 public void MostrarPanel(JPanel p) {
@@ -64,12 +64,9 @@ public void MostrarPanel(JPanel p) {
 
         info = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        color1 = new javax.swing.JTextField();
         n_motor1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         n_chasis1 = new javax.swing.JTextField();
-        puertas1 = new javax.swing.JTextField();
-        marca1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         modelo1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -78,22 +75,19 @@ public void MostrarPanel(JPanel p) {
         jLabel15 = new javax.swing.JLabel();
         cabina1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        traccion1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         confirmar = new javax.swing.JLabel();
+        marca1 = new javax.swing.JComboBox<>();
+        traccion1 = new javax.swing.JComboBox<>();
+        puertas1 = new javax.swing.JComboBox<>();
+        color1 = new javax.swing.JComboBox<>();
         Buscador = new javax.swing.JTextField();
         B_buscar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         jLabel10.setText("Año");
-
-        color1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                color1ActionPerformed(evt);
-            }
-        });
 
         n_motor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,18 +103,6 @@ public void MostrarPanel(JPanel p) {
             }
         });
 
-        puertas1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                puertas1ActionPerformed(evt);
-            }
-        });
-
-        marca1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                marca1ActionPerformed(evt);
-            }
-        });
-
         jLabel12.setText("cantida de puertas");
 
         jLabel13.setText("Cabina");
@@ -130,12 +112,6 @@ public void MostrarPanel(JPanel p) {
         jLabel15.setText("Nº Motor");
 
         jLabel16.setText("Nº chasis");
-
-        traccion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                traccion1ActionPerformed(evt);
-            }
-        });
 
         jLabel17.setText("Marca");
 
@@ -148,6 +124,14 @@ public void MostrarPanel(JPanel p) {
                 confirmarMousePressed(evt);
             }
         });
+
+        marca1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
+
+        traccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "doble", "4x4" }));
+
+        puertas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+
+        color1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "azul", "blanco", "verde", "negro" }));
 
         javax.swing.GroupLayout infoLayout = new javax.swing.GroupLayout(info);
         info.setLayout(infoLayout);
@@ -171,11 +155,11 @@ public void MostrarPanel(JPanel p) {
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoLayout.createSequentialGroup()
-                                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(infoLayout.createSequentialGroup()
                                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(marca1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(marca1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(infoLayout.createSequentialGroup()
                                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -185,10 +169,11 @@ public void MostrarPanel(JPanel p) {
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(traccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(puertas1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cabina1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cabina1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                            .addComponent(traccion1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(puertas1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(color1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(68, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -201,12 +186,8 @@ public void MostrarPanel(JPanel p) {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(n_motor1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(35, 35, 35)
-                    .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(infoLayout.createSequentialGroup()
-                            .addGap(126, 126, 126)
-                            .addComponent(color1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(68, Short.MAX_VALUE)))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(279, Short.MAX_VALUE)))
         );
         infoLayout.setVerticalGroup(
             infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +196,9 @@ public void MostrarPanel(JPanel p) {
                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(n_chasis1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
+                .addGap(17, 17, 17)
+                .addComponent(color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(anio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,17 +213,17 @@ public void MostrarPanel(JPanel p) {
                     .addGroup(infoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(puertas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12))))
+                            .addComponent(jLabel12)
+                            .addComponent(puertas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(29, 29, 29)
                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
                     .addComponent(modelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(traccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabel14)
+                    .addComponent(traccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(infoLayout.createSequentialGroup()
                     .addGap(62, 62, 62)
@@ -248,8 +231,7 @@ public void MostrarPanel(JPanel p) {
                         .addComponent(jLabel15)
                         .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(n_motor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(color1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel11)))
                     .addContainerGap(204, Short.MAX_VALUE)))
         );
 
@@ -296,7 +278,7 @@ public void MostrarPanel(JPanel p) {
                         .addGap(134, 134, 134)
                         .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
+                        .addGap(252, 252, 252)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -316,7 +298,7 @@ public void MostrarPanel(JPanel p) {
     }// </editor-fold>//GEN-END:initComponents
     
     private void BuscarChasis(){
-        traccion1.setEnabled(true);
+       
         cabina1.setEnabled(true);
         puertas1.setEnabled(true);
         
@@ -333,13 +315,12 @@ public void MostrarPanel(JPanel p) {
                 
                 n_chasis1.setText(numero_chasis);
                 n_motor1.setText(numero_motor);
-                marca1.setText(cc.getMarca());
+    
                 modelo1.setText(cc.getModelo());
-                color1.setText(cc.getColor());
+           
                 anio1.setText(cc.getAnio());
-                puertas1.setText(cant_puertas);
-                traccion1.setText("nulo");
-                traccion1.setEnabled(false);
+             
+  
                 cabina1.setText("nulo");
                 cabina1.setEnabled(false);
                 
@@ -356,13 +337,13 @@ public void MostrarPanel(JPanel p) {
                 
                 n_chasis1.setText(numero_chasis);
                 n_motor1.setText(numero_motor);
-                marca1.setText(cb.getMarca());
+   
                 modelo1.setText(cb.getModelo());
-                color1.setText(cb.getColor());
+         
                 anio1.setText(cb.getAnio());
-                puertas1.setText("nulo");
+  
                 puertas1.setEnabled(false);
-                traccion1.setText(cb.getTraccion());
+        
                 cabina1.setText(cb.getTpo_cabina());
                
 
@@ -384,29 +365,29 @@ public void MostrarPanel(JPanel p) {
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscadorActionPerformed
 
-    private void color1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_color1ActionPerformed
+    private void confirmarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarMousePressed
 
-    private void n_motor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_motor1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_n_motor1ActionPerformed
+        try {
+            if (cabina1.getText().equals("nulo")){
+                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 1 );
+            }
+            Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 2 );
+
+        }
+
+        catch (IOException ex) {
+            Logger.getLogger(Modificar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_confirmarMousePressed
 
     private void n_chasis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_chasis1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_n_chasis1ActionPerformed
 
-    private void puertas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puertas1ActionPerformed
+    private void n_motor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_motor1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_puertas1ActionPerformed
-
-    private void marca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marca1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_marca1ActionPerformed
-
-    private void traccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traccion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_traccion1ActionPerformed
+    }//GEN-LAST:event_n_motor1ActionPerformed
     public void Modificar (String n_chasis, String n_motor, String anio, String marca, String modelo,
                             String color, String cabina, String puertas, String traccion, int tipo) throws FileNotFoundException, IOException{
         
@@ -462,12 +443,11 @@ public void MostrarPanel(JPanel p) {
             
                     n_chasis1.setText(null);
                     n_motor1.setText(null);
-                    marca1.setText(null);
+               
                     modelo1.setText(null);
-                    color1.setText(null);
+      
                     anio1.setText(null);
-                    puertas1.setText(null);
-                    traccion1.setText(null);
+
                     cabina1.setText(null);
                     cabina1.setEnabled(true);
                     traccion1.setEnabled(true);
@@ -518,12 +498,11 @@ public void MostrarPanel(JPanel p) {
                     
                     n_chasis1.setText(null);
                     n_motor1.setText(null);
-                    marca1.setText(null);
+                 
                     modelo1.setText(null);
-                    color1.setText(null);
+       
                     anio1.setText(null);
-                    puertas1.setText(null);
-                    traccion1.setText(null);
+           
                     cabina1.setText(null);
                     puertas1.setEnabled(true);
             
@@ -537,29 +516,13 @@ public void MostrarPanel(JPanel p) {
         }
     
 
-    private void confirmarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarMousePressed
-        
-        try {
-            if (cabina1.getText().equals("nulo")){
-                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getText(), modelo1.getText(),color1.getText(),cabina1.getText(),puertas1.getText(),traccion1.getText(), 1 );
-            }   
-            Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getText(), modelo1.getText(),color1.getText(),cabina1.getText(),puertas1.getText(),traccion1.getText(), 2 );
-               
-        } 
-        
-        catch (IOException ex) {
-            Logger.getLogger(Modificar.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_confirmarMousePressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel B_buscar;
     private javax.swing.JTextField Buscador;
     private javax.swing.JTextField anio1;
     private javax.swing.JTextField cabina1;
-    private javax.swing.JTextField color1;
+    private javax.swing.JComboBox<String> color1;
     private javax.swing.JLabel confirmar;
     private javax.swing.JPanel info;
     private javax.swing.JLabel jLabel10;
@@ -573,11 +536,11 @@ public void MostrarPanel(JPanel p) {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField marca1;
+    private javax.swing.JComboBox<String> marca1;
     private javax.swing.JTextField modelo1;
     private javax.swing.JTextField n_chasis1;
     private javax.swing.JTextField n_motor1;
-    private javax.swing.JTextField puertas1;
-    private javax.swing.JTextField traccion1;
+    private javax.swing.JComboBox<String> puertas1;
+    private javax.swing.JComboBox<String> traccion1;
     // End of variables declaration//GEN-END:variables
 }

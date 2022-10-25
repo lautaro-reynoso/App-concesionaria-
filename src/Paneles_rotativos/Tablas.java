@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -34,34 +36,36 @@ public class Tablas extends javax.swing.JPanel {
 
         initComponents();
         MuestraTabla();
+
+        
+        
+
     }
 
     public void MuestraTabla() {
 
         Tabla();
-        if (tab_a.getRowCount() != 0&& tab_c.getRowCount() != 0) {
 
-            jLabel2.setText("Total de autos: " + tab_a.getRowCount());
-            jLabel1.setText("Total de camionetas: " + tab_c.getRowCount());
-            jLabel3.setText("Total de ventas: " + Ventas.ventas.size());
-            
-        }
-        
+        jLabel2.setText("Total de autos: " + tab_a.getRowCount());
+        jLabel1.setText("Total de camionetas: " + tab_c.getRowCount());
+        jLabel3.setText("Total de ventas: " + Ventas.ventas.size());
+
     }
-    public void colormasvendido(){
-        if (Vehiculo.vehiculo.size()!=0){
-            String  arr [] = new String[Vehiculo.vehiculo.size()];
-            
+
+    public void colormasvendido() {
+        if (Vehiculo.vehiculo.size() != 0) {
+            String arr[] = new String[Vehiculo.vehiculo.size()];
+
             for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
-                
-                arr [i] =Vehiculo.vehiculo.get(i).getColor();
+
+                arr[i] = Vehiculo.vehiculo.get(i).getColor();
             }
             for (int i = 0; i < arr.length; i++) {
-                
-                
+
             }
         }
     }
+
     public static void CargadeVentas() {
 
         try {
@@ -162,85 +166,74 @@ public class Tablas extends javax.swing.JPanel {
             tablamodelo.addRow(tab);
 
         }
-        
 
-            DefaultTableModel modelo = new DefaultTableModel();
-            
-            ArrayList<Object>nombrecolumna = new ArrayList<>();
-            
-            nombrecolumna.add("Nro Chasis");
-            nombrecolumna.add("Nro Motor");
-            nombrecolumna.add("Color");
-            nombrecolumna.add("Marca");
-            nombrecolumna.add("Modelo");
-            nombrecolumna.add("Anio");
-            nombrecolumna.add("Traccion");
-            nombrecolumna.add("Tipo de cabina");
-            for(Object columna : nombrecolumna){
-                modelo.addColumn(columna);
-            }
-            
-            this.tab_c.setModel(modelo);
-            
-            DefaultTableModel modelo1 = new DefaultTableModel();
-            
-            ArrayList<Object>nombrecolum = new ArrayList<Object>();
-            nombrecolum.add("Nro Chasis");
-            nombrecolum.add("Nro Motor");
-            nombrecolum.add("Color");
-            nombrecolum.add("Marca");
-            nombrecolum.add("Modelo");
-            nombrecolum.add("Anio");
-            nombrecolum.add("Cant puertas");
-            for(Object columna : nombrecolum){
-                modelo1.addColumn(columna);
-            }
-            
-            this.tab_a.setModel(modelo1);
-            
-            for(int k=0;k<Vehiculo.vehiculo.size();k++){
-                
-                if(Vehiculo.vehiculo.get(k) instanceof Camioneta){
-                
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        ArrayList<Object> nombrecolumna = new ArrayList<>();
+
+        nombrecolumna.add("Nro Chasis");
+        nombrecolumna.add("Nro Motor");
+        nombrecolumna.add("Color");
+        nombrecolumna.add("Marca");
+        nombrecolumna.add("Modelo");
+        nombrecolumna.add("Anio");
+        nombrecolumna.add("Traccion");
+        nombrecolumna.add("Tipo de cabina");
+        for (Object columna : nombrecolumna) {
+            modelo.addColumn(columna);
+        }
+
+        this.tab_c.setModel(modelo);
+
+        DefaultTableModel modelo1 = new DefaultTableModel();
+
+        ArrayList<Object> nombrecolum = new ArrayList<Object>();
+        nombrecolum.add("Nro Chasis");
+        nombrecolum.add("Nro Motor");
+        nombrecolum.add("Color");
+        nombrecolum.add("Marca");
+        nombrecolum.add("Modelo");
+        nombrecolum.add("Anio");
+        nombrecolum.add("Cant puertas");
+        for (Object columna : nombrecolum) {
+            modelo1.addColumn(columna);
+        }
+
+        this.tab_a.setModel(modelo1);
+
+        for (int k = 0; k < Vehiculo.vehiculo.size(); k++) {
+
+            if (Vehiculo.vehiculo.get(k) instanceof Camioneta) {
+
                 Camioneta cb = (Camioneta) Vehiculo.vehiculo.get(k);
                 String numero_chasis = Integer.toString(cb.getNro_chasis());
                 String numero_motor = Integer.toString(cb.getNro_motor());
 
-                String tab[] = {numero_chasis, numero_motor, cb.getColor(), cb.getMarca(), cb.getModelo(), cb.getAnio(),cb.getTraccion(), cb.getTpo_cabina()};
-                
+                String tab[] = {numero_chasis, numero_motor, cb.getColor(), cb.getMarca(), cb.getModelo(), cb.getAnio(), cb.getTraccion(), cb.getTpo_cabina()};
+
                 modelo.addRow(tab);
-            }
-                else{
-                    
-                    Auto cc = (Auto)Vehiculo.vehiculo.get(k);
+            } else {
 
-                    String cant_puertas = Integer.toString(cc.getCant_puertas());
-                    String numero_chasis = Integer.toString(cc.getNro_chasis());
-                    String numero_motor = Integer.toString(cc.getNro_motor());
-                
-                    String tab[] = {numero_chasis, numero_motor, cc.getColor(), cc.getMarca(), cc.getModelo(), cc.getAnio(), cant_puertas};
-                
-                    modelo1.addRow(tab);
-                }
-                    
-            }
-       
-            
-            
-            tab_c.setModel(modelo);
-            tab_a.setModel(modelo1);    
-            
+                Auto cc = (Auto) Vehiculo.vehiculo.get(k);
 
-            
+                String cant_puertas = Integer.toString(cc.getCant_puertas());
+                String numero_chasis = Integer.toString(cc.getNro_chasis());
+                String numero_motor = Integer.toString(cc.getNro_motor());
 
+                String tab[] = {numero_chasis, numero_motor, cc.getColor(), cc.getMarca(), cc.getModelo(), cc.getAnio(), cant_puertas};
+
+                modelo1.addRow(tab);
             }
 
-        
+        }
 
-        /*
-         */
-    
+        tab_c.setModel(modelo);
+        tab_a.setModel(modelo1);
 
+    }
+
+    /*
+     */
     public static void LecturaArchivo(File archivo, BufferedReader archivob, List<String> lista_de_archivo) throws IOException {
 
         String s = new String();
@@ -375,7 +368,7 @@ public class Tablas extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VENTAS", jPanel2);
@@ -439,12 +432,6 @@ public class Tablas extends javax.swing.JPanel {
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7)
-                        .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -453,22 +440,32 @@ public class Tablas extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
-                        .addGap(54, 54, 54))))
+                        .addGap(54, 54, 54))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(78, 78, 78))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel5)
-                .addGap(3, 3, 3)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jLabel4))
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addGap(24, 24, 24)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
