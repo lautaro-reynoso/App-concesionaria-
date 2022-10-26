@@ -127,7 +127,7 @@ public void MostrarPanel(JPanel p) {
 
         marca1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
 
-        traccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "doble", "4x4" }));
+        traccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "4x4" }));
 
         puertas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "4", "5" }));
 
@@ -271,7 +271,7 @@ public void MostrarPanel(JPanel p) {
                 .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(B_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

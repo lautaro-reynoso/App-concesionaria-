@@ -2,3 +2,4 @@ DNI Telefono CUIL Nombre Apellido Correo_e Nro_contrato monto fecha tpo_moneda m
 1 2 3 4 5 6 7 8 9 10 11 12
 44718142 2664888023 20447181429 lautaro reynoso lautireynoso@gmail.com 12 200 12/20/2 nada chevrolet 15
 44718142 26645 2012 lauti reynoso lauti@gmail.com 20 200 20/10/2022 bitcoin chevrolet 299
+1234 14324 234 sdf sdf sdf 234 2345 345645 ARG ford 92
