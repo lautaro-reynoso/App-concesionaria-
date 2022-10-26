@@ -163,7 +163,7 @@ public class Cargar extends javax.swing.JPanel {
 
         tpo_cabina_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "simple", "doble" }));
 
-        traccion_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "doble", "4x4" }));
+        traccion_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "4x4" }));
 
         marca_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
 
@@ -447,7 +447,7 @@ public class Cargar extends javax.swing.JPanel {
 
         jLabel23.setText("Monto:");
 
-        enviar_btn2.setText(" Enviar ");
+        enviar_btn2.setText("Cargar");
         enviar_btn2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         enviar_btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enviar_btn2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -509,8 +509,7 @@ public class Cargar extends javax.swing.JPanel {
                             .addComponent(jLabel25))
                         .addGap(21, 616, Short.MAX_VALUE)
                         .addComponent(jLabel31)
-                        .addGap(58, 58, 58)
-                        .addComponent(enviar_btn2))
+                        .addGap(104, 104, 104))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -539,7 +538,11 @@ public class Cargar extends javax.swing.JPanel {
                                             .addComponent(fecha_v)
                                             .addComponent(tipo_moneda_v, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1)))
+                        .addComponent(jScrollPane1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -548,9 +551,8 @@ public class Cargar extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -598,7 +600,9 @@ public class Cargar extends javax.swing.JPanel {
                             .addComponent(tipo_moneda_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(3, 3, 3))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -770,7 +774,7 @@ public class Cargar extends javax.swing.JPanel {
         } catch (IOException ex) {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
         } catch (java.lang.NumberFormatException ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, Ingreso una palabra donde se esperaba un numero.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
              javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }

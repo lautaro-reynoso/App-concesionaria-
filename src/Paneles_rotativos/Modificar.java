@@ -9,6 +9,7 @@ import clases.Auto;
 import clases.Camioneta;
 import clases.Vehiculo;
 import interfaces.Principal;
+import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
@@ -127,7 +129,7 @@ public void MostrarPanel(JPanel p) {
 
         traccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "doble", "4x4" }));
 
-        puertas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5" }));
+        puertas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "4", "5" }));
 
         color1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "azul", "blanco", "verde", "negro" }));
 
@@ -269,7 +271,7 @@ public void MostrarPanel(JPanel p) {
                 .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(B_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -333,13 +335,22 @@ public void MostrarPanel(JPanel p) {
 
                
             }
+            else{    
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, No se encontro el vehiculo.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            }
         }
     }
     
     private void B_buscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_buscarMousePressed
         if (Buscador.getText()!= null){
-            BuscarChasis();
-            
+            if(Vehiculo.vehiculo.size()!=0){
+                BuscarChasis();
+            }
+            else{
+                Component jFrame = null;
+                JOptionPane.showMessageDialog(jFrame,"Error, no hay ningun vehiculo cargado");
+            }
+                
         }
     }//GEN-LAST:event_B_buscarMousePressed
 
@@ -374,7 +385,7 @@ public void MostrarPanel(JPanel p) {
     }//GEN-LAST:event_n_motor1ActionPerformed
     public void Modificar (String n_chasis, String n_motor, String anio, String marca, String modelo,
                             String color, String cabina, String puertas, String traccion, int tipo) throws FileNotFoundException, IOException{
-        
+       
          if(tipo ==1){
            
             int n = Integer.parseInt(n_chasis);
