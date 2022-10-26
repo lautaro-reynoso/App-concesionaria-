@@ -231,7 +231,7 @@ public class Eliminar extends javax.swing.JPanel {
        
        //aca va todo loque hay que haccerrr de camioneta
        try{
-            
+           try{
             
             int n = Integer.parseInt(nro_chasis.getText());
             nro_chasis.setText(null);
@@ -284,11 +284,16 @@ public class Eliminar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(jFrame, "No se encontro ninguna camioneta con ese numero de chasis en el sistema.");
             }
             
+        
+            
         }catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-       
+        }catch (java.lang.NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete la casilla correctamente.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+           
     }//GEN-LAST:event_bus_nrocMousePressed
 
     
@@ -337,7 +342,7 @@ public class Eliminar extends javax.swing.JPanel {
 
     private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
         // TODO el codigo de eliminar de tabla UN AUTO
-        
+        try{
         int fila = tab_auto.getSelectedRow();
             String valor = tab_auto.getValueAt(fila, 0).toString();
         
@@ -384,7 +389,9 @@ public class Eliminar extends javax.swing.JPanel {
                 }
         
                 }
-        
+        }catch(java.lang.ArrayIndexOutOfBoundsException ex){
+                javax.swing.JOptionPane.showMessageDialog(this, "Error, ingrese un auto de la lista.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    }
     }//GEN-LAST:event_jButton2MousePressed
 
     
@@ -428,10 +435,10 @@ public class Eliminar extends javax.swing.JPanel {
             }
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
         // TODO CODIGO ELIMINAR CAMIONETA DE TABLA
-        
+            try{
             int fila = tab_camioneta.getSelectedRow();
             String valor = tab_camioneta.getValueAt(fila, 0).toString();
-        
+            
             int n =Integer.parseInt(valor);
             
              for(int x = 0;x< Vehiculo.vehiculo.size();x++ ){
@@ -474,10 +481,11 @@ public class Eliminar extends javax.swing.JPanel {
                     }
                 }
         
-                }
+             }  
         
-        
-        
+            }catch(java.lang.ArrayIndexOutOfBoundsException ex){
+                javax.swing.JOptionPane.showMessageDialog(this, "Error, ingrese una camioneta de la lista.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    }
     }//GEN-LAST:event_jButton4MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -486,7 +494,7 @@ public class Eliminar extends javax.swing.JPanel {
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
         try{
-            
+            try{
             
             int n = Integer.parseInt(auto.getText());
             auto.setText(null);
@@ -544,6 +552,9 @@ public class Eliminar extends javax.swing.JPanel {
             e.printStackTrace();
         }
         
+        }catch (java.lang.NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete la casilla correctamente.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1MousePressed
 
 
