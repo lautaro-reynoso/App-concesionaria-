@@ -1,2 +1,1 @@
 nro_chasis nro_motor marca color modelo anio cant_puertas
-92 345 ford blanco sdf sdf 1

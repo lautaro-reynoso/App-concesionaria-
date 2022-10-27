@@ -12,9 +12,11 @@ import java.io.BufferedReader;
 import java.io.Writer;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ public class Cargar extends javax.swing.JPanel {
 
     public static String marca1;
     public static String nrochasis1;
-    int filas_vehiculos = 0;
+
     int filas_ventas;
 
     /**
@@ -494,36 +496,36 @@ public class Cargar extends javax.swing.JPanel {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel19)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jLabel29)))
-                            .addComponent(jLabel25))
-                        .addGap(21, 616, Short.MAX_VALUE)
-                        .addComponent(jLabel31)
-                        .addGap(104, 104, 104))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel25)
+                                .addGap(85, 680, Short.MAX_VALUE)
+                                .addComponent(jLabel31)
+                                .addGap(104, 104, 104))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dni_v, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                    .addComponent(telefono_v)
-                                    .addComponent(nombre_v)
-                                    .addComponent(apellido_v)
-                                    .addComponent(correo_v)
-                                    .addComponent(cuil_v)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel29)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel19)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel17))
+                                        .addGap(22, 22, 22)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dni_v, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                            .addComponent(telefono_v)
+                                            .addComponent(nombre_v)
+                                            .addComponent(apellido_v)
+                                            .addComponent(correo_v)
+                                            .addComponent(cuil_v)))
                                     .addComponent(jLabel26)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -536,13 +538,9 @@ public class Cargar extends javax.swing.JPanel {
                                             .addComponent(nro_contrato, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                                             .addComponent(monto_v)
                                             .addComponent(fecha_v)
-                                            .addComponent(tipo_moneda_v, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
+                                            .addComponent(tipo_moneda_v, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1)))))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -553,33 +551,31 @@ public class Cargar extends javax.swing.JPanel {
                     .addComponent(jLabel25)
                     .addComponent(jLabel31))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel19)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel20)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel21)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel29))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(dni_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(telefono_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nombre_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(apellido_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(correo_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cuil_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(dni_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(telefono_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombre_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(apellido_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(correo_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cuil_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel29))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -598,9 +594,10 @@ public class Cargar extends javax.swing.JPanel {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
                             .addComponent(tipo_moneda_v, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(3, 3, 3))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(9, 9, 9))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(enviar_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -674,17 +671,15 @@ public class Cargar extends javax.swing.JPanel {
 
             autosb.write(nro_chasis.getText() + " " + nro_motor.getText() + " " + marca.getSelectedItem().toString() + " " + color.getSelectedItem().toString() + " " + modelo.getText() + " " + anio.getText() + " " + cdad_puertas.getSelectedItem().toString());
             //  System.out.println(nro_chasis.getText());
-            Vehiculo auto = new Auto(Integer.parseInt(nro_chasis.getText()), Integer.parseInt(nro_motor.getText()), color.getSelectedItem().toString(), marca.getSelectedItem().toString(), modelo.getText(), anio.getText(), Integer.parseInt( cdad_puertas.getSelectedItem().toString()));
+            Vehiculo auto = new Auto(Integer.parseInt(nro_chasis.getText()), Integer.parseInt(nro_motor.getText()), color.getSelectedItem().toString(), marca.getSelectedItem().toString(), modelo.getText(), anio.getText(), Integer.parseInt(cdad_puertas.getSelectedItem().toString()));
 
             Vehiculo.vehiculo.add(auto);
 
             autosb.close();
 
-         
             nro_chasis.setText(null);
             nro_motor.setText(null);
-  
-       
+
             modelo.setText(null);
             anio.setText(null);
             jLabel30.setText("Enviado con exito.");
@@ -693,6 +688,91 @@ public class Cargar extends javax.swing.JPanel {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
         } catch (java.lang.NumberFormatException ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        }
+
+    }
+
+    public void actualizarlista(int tipo) throws FileNotFoundException, IOException {
+        if (tipo == 1) {
+
+            int n = Integer.parseInt(nrochasis1);
+
+            for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
+
+                if (Vehiculo.vehiculo.get(i).getNro_chasis() == n) {
+
+                    Vehiculo.vehiculo.remove(Vehiculo.vehiculo.get(i));
+
+                    for (int j = 0; j < Vehiculo.vehiculo.size(); j++) {
+                        System.out.println(Vehiculo.vehiculo.get(j));
+                    }
+
+                }
+            }
+
+            File file = new File("autos.txt");
+            if (file.exists()) {
+                PrintWriter autoosr = new PrintWriter(file);
+                autoosr.close();
+            }
+
+            FileWriter autsr = new FileWriter(file, true);
+            BufferedWriter autsb = new BufferedWriter(autsr);
+
+            autsb.write("nro_chasis nro_motor marca color modelo anio cant_puertas");
+
+            for (int j = 0; j < Vehiculo.vehiculo.size(); j++) {
+
+                if (Vehiculo.vehiculo.get(j) instanceof Auto) {
+
+                    Auto cc = (Auto) Vehiculo.vehiculo.get(j);
+                    autsb.write("\n");
+                    autsb.write(Vehiculo.vehiculo.get(j).getNro_chasis() + " " + Vehiculo.vehiculo.get(j).getNro_motor() + " " + Vehiculo.vehiculo.get(j).getMarca() + " " + Vehiculo.vehiculo.get(j).getColor() + " " + Vehiculo.vehiculo.get(j).getModelo() + " " + Vehiculo.vehiculo.get(j).getAnio() + " " + cc.getCant_puertas());
+
+                }
+            }
+            autsb.close();
+            autsr.close();
+
+        } else {
+            int n = Integer.parseInt(nrochasis1);
+
+            for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
+
+                if (Vehiculo.vehiculo.get(i).getNro_chasis() == n) {
+
+                    Vehiculo.vehiculo.remove(Vehiculo.vehiculo.get(i));
+
+                    /*for (int j = 0 ; j < Vehiculo.vehiculo.size(); j++){
+                        System.out.println(Vehiculo.vehiculo.get(j));
+                    } 
+                     */
+                }
+            }
+            File file = new File("camionetas.txt");
+            if (file.exists()) {
+                PrintWriter autoosr = new PrintWriter(file);
+                autoosr.close();
+            }
+
+            FileWriter autsr = new FileWriter(file, true);
+            BufferedWriter autsb = new BufferedWriter(autsr);
+
+            autsb.write("nro_chasis nro_motor color marca modelo anio traccion tpo_cabina");
+
+            for (int j = 0; j < Vehiculo.vehiculo.size(); j++) {
+
+                if (Vehiculo.vehiculo.get(j) instanceof Camioneta) {
+
+                    Camioneta cc = (Camioneta) Vehiculo.vehiculo.get(j);
+                    autsb.write("\n");
+                    autsb.write(Vehiculo.vehiculo.get(j).getNro_chasis() + " " + Vehiculo.vehiculo.get(j).getNro_motor() + " " + Vehiculo.vehiculo.get(j).getColor() + " " + Vehiculo.vehiculo.get(j).getMarca() + " " + Vehiculo.vehiculo.get(j).getModelo() + " " + Vehiculo.vehiculo.get(j).getAnio() + " " + cc.getTraccion() + " " + cc.getTpo_cabina());
+
+                }
+            }
+            autsb.close();
+            autsr.close();
+
         }
 
     }
@@ -720,10 +800,9 @@ public class Cargar extends javax.swing.JPanel {
 
             nro_chasis_c.setText(null);
             nro_motor_c.setText(null);
-        
+
             modelo_c.setText(null);
             anio_c.setText(null);
-
 
             jLabel28.setText("Enviado con exito.");
         } catch (IOException ex) {
@@ -752,7 +831,21 @@ public class Cargar extends javax.swing.JPanel {
             Comprador comprador = new Comprador(Long.parseLong(dni_v.getText()), Long.parseLong(telefono_v.getText()), Long.parseLong(cuil_v.getText()), nombre_v.getText(), apellido_v.getText(), correo_v.getText());
 
             Ventas venta = new Ventas(Integer.parseInt(nro_contrato.getText()), Float.parseFloat(monto_v.getText()), fecha_v.getText(), tipo_moneda_v.getSelectedItem().toString(), marca1, nrochasis1, comprador);
-            System.out.println(marca1);
+
+            for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
+                if (Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(nrochasis1)) {
+                    if (Vehiculo.vehiculo.get(i) instanceof Auto) {
+                        Tablas.filas_autos--;
+                        actualizarlista(1);
+                    } else {
+                        Tablas.filas_camionetas--;
+                        actualizarlista(0);
+                    }
+
+                }
+
+            }
+
             Ventas.ventas.add(venta);
 
             ventasb.close();
@@ -768,15 +861,14 @@ public class Cargar extends javax.swing.JPanel {
             monto_v.setText(null);
             fecha_v.setText(null);
 
-            
-                 jLabel31.setText("Enviado con exito.");
+            jLabel31.setText("Enviado con exito.");
 
         } catch (IOException ex) {
             Logger.getLogger(Cargar.class.getName()).log(Level.SEVERE, null, ex);
         } catch (java.lang.NumberFormatException ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error, Ingreso una palabra donde se esperaba un numero.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         } catch (java.lang.ArrayIndexOutOfBoundsException ex) {
-             javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Error, complete todas las casillas.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
@@ -785,35 +877,46 @@ public class Cargar extends javax.swing.JPanel {
 
         CargadeVentasInterfaz();
 
+        TablaVentas();
+        filas_ventas--;
+
     }//GEN-LAST:event_enviar_btn2MousePressed
 
     public void TablaVentas() {
-        int f = 0;
-        for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
-            f++;
 
-            Vehiculo cc = Vehiculo.vehiculo.get(i);
+        DefaultTableModel modelo = new DefaultTableModel();
 
-            String numero_chasis = Integer.toString(cc.getNro_chasis());
-            String numero_motor = Integer.toString(cc.getNro_motor());
-            System.out.println(numero_chasis);
-            String tab[] = {cc.getModelo(), cc.getMarca(), cc.getColor(), numero_chasis};
-
-            DefaultTableModel tablamodelo = (DefaultTableModel) jTable1.getModel();
-
-            filas_vehiculos = f;
-            int rows = tablamodelo.getRowCount();
-            for (int j = rows - filas_vehiculos; j >= 0; j--) {
-                tablamodelo.removeRow(j);
-
-            }
-
-            tablamodelo.addRow(tab);
-
+        ArrayList<Object> nombrecolumna = new ArrayList<Object>();
+        nombrecolumna.add("Modelo");
+        nombrecolumna.add("Marca");
+        nombrecolumna.add("Color");
+        nombrecolumna.add("Nro de chasis");
+        for (Object columna : nombrecolumna) {
+            modelo.addColumn(columna);
         }
+
+        this.jTable1.setModel(modelo);
+
+        for (int k = 0; k < Vehiculo.vehiculo.size(); k++) {
+            if (Vehiculo.vehiculo.get(k) instanceof Auto) {
+                Auto cc = (Auto) Vehiculo.vehiculo.get(k);
+
+                String cant_puertas = Integer.toString(cc.getCant_puertas());
+                String numero_chasis = Integer.toString(cc.getNro_chasis());
+                String numero_motor = Integer.toString(cc.getNro_motor());
+
+                String tab[] = {cc.getModelo(), cc.getMarca(), cc.getColor(), numero_chasis};
+
+                modelo.addRow(tab);
+            }
+        }
+
+        jTable1.setModel(modelo);
+
     }
     private void jPanel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseEntered
 
+        TablaVentas();
 
     }//GEN-LAST:event_jPanel3MouseEntered
 

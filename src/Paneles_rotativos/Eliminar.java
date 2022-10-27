@@ -433,6 +433,7 @@ public class Eliminar extends javax.swing.JPanel {
             tab_camioneta.setModel(modelo);
 
             }
+
     private void jButton4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MousePressed
         // TODO CODIGO ELIMINAR CAMIONETA DE TABLA
             try{
@@ -443,6 +444,7 @@ public class Eliminar extends javax.swing.JPanel {
             
              for(int x = 0;x< Vehiculo.vehiculo.size();x++ ){
                 if( Vehiculo.vehiculo.get(x).getNro_chasis() == n && Vehiculo.vehiculo.get(x) instanceof Camioneta){
+                    
                     JFrame jFrame = new JFrame();
                         int result = JOptionPane.showConfirmDialog(jFrame, "Esta seguro que desea eliminar esta camioneta?");
 

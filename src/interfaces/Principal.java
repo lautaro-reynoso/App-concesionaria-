@@ -33,6 +33,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
 
         MostrarPanel(carga);
+        carga.TablaVentas();
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12));
 
     }
