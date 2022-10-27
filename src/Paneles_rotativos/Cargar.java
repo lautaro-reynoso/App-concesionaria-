@@ -4,9 +4,9 @@
  */
 package Paneles_rotativos;
 
-import static Paneles_rotativos.Tablas.filas_autos;
 import clases.*;
 import java.awt.Color;
+import java.awt.Component;
 import java.io.BufferedReader;
 
 import java.io.Writer;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -313,6 +314,12 @@ public class Cargar extends javax.swing.JPanel {
 
         jLabel7.setText("Año:");
 
+        nro_chasis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                nro_chasisMousePressed(evt);
+            }
+        });
+
         nro_motor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nro_motorActionPerformed(evt);
@@ -473,11 +480,11 @@ public class Cargar extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Modelo", "Marca", "Color", "Nro de chasis"
+                "Vehiculo", "Modelo", "Marca", "Color", "Nro de chasis"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -639,9 +646,18 @@ public class Cargar extends javax.swing.JPanel {
 
 
     private void enviar_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btnMousePressed
-
-        CargadeAutosInterfaz();
-
+        for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
+            if(Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(nro_chasis.getText())){
+                  Component jFrame = null;
+                JOptionPane.showMessageDialog(jFrame,"Error, ya existe un vehiculo con ese numero de chasis");
+                break;
+            }
+            else{
+                  CargadeAutosInterfaz();
+                  break;
+            }
+        }
+      
         TablaVentas();
 
 
@@ -722,6 +738,8 @@ public class Cargar extends javax.swing.JPanel {
             autsb.write("nro_chasis nro_motor marca color modelo anio cant_puertas");
 
             for (int j = 0; j < Vehiculo.vehiculo.size(); j++) {
+                
+                
 
                 if (Vehiculo.vehiculo.get(j) instanceof Auto) {
 
@@ -814,7 +832,7 @@ public class Cargar extends javax.swing.JPanel {
     }
 
     private void CargadeVentasInterfaz() {
-
+        
         File camionetas = new File("ventas.txt");
 
         try {
@@ -823,8 +841,8 @@ public class Cargar extends javax.swing.JPanel {
             BufferedWriter ventasb = new BufferedWriter(ventas);
 
             ventasb.write("\n");
-            nrochasis1 = jTable1.getValueAt(jTable1.getSelectedRow(), 3).toString();
-            marca1 = jTable1.getValueAt(jTable1.getSelectedRow(), 1).toString();
+            nrochasis1 = jTable1.getValueAt(jTable1.getSelectedRow(), 4).toString();
+            marca1 = jTable1.getValueAt(jTable1.getSelectedRow(), 2).toString();
 
             ventasb.write(dni_v.getText() + " " + telefono_v.getText() + " " + cuil_v.getText() + " " + nombre_v.getText() + " " + apellido_v.getText() + " " + correo_v.getText() + " " + nro_contrato.getText() + " " + monto_v.getText() + " " + fecha_v.getText() + " " + tipo_moneda_v.getSelectedItem().toString() + " " + marca1 + " " + nrochasis1);
 
@@ -835,10 +853,10 @@ public class Cargar extends javax.swing.JPanel {
             for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
                 if (Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(nrochasis1)) {
                     if (Vehiculo.vehiculo.get(i) instanceof Auto) {
-                        Tablas.filas_autos--;
+                        //         Tablas.filas_autos--;
                         actualizarlista(1);
                     } else {
-                        Tablas.filas_camionetas--;
+                        //         Tablas.filas_camionetas--;
                         actualizarlista(0);
                     }
 
@@ -878,7 +896,7 @@ public class Cargar extends javax.swing.JPanel {
         CargadeVentasInterfaz();
 
         TablaVentas();
-        filas_ventas--;
+        //     filas_ventas--;
 
     }//GEN-LAST:event_enviar_btn2MousePressed
 
@@ -887,6 +905,7 @@ public class Cargar extends javax.swing.JPanel {
         DefaultTableModel modelo = new DefaultTableModel();
 
         ArrayList<Object> nombrecolumna = new ArrayList<Object>();
+        nombrecolumna.add("Vehiculo");
         nombrecolumna.add("Modelo");
         nombrecolumna.add("Marca");
         nombrecolumna.add("Color");
@@ -901,14 +920,19 @@ public class Cargar extends javax.swing.JPanel {
             if (Vehiculo.vehiculo.get(k) instanceof Auto) {
                 Auto cc = (Auto) Vehiculo.vehiculo.get(k);
 
-                String cant_puertas = Integer.toString(cc.getCant_puertas());
                 String numero_chasis = Integer.toString(cc.getNro_chasis());
-                String numero_motor = Integer.toString(cc.getNro_motor());
 
-                String tab[] = {cc.getModelo(), cc.getMarca(), cc.getColor(), numero_chasis};
+                String tab[] = {"Auto", cc.getModelo(), cc.getMarca(), cc.getColor(), numero_chasis};
 
                 modelo.addRow(tab);
+            } else {
+                Camioneta cc = (Camioneta) Vehiculo.vehiculo.get(k);
+                String numero_chasis = Integer.toString(cc.getNro_chasis());
+
+                String tab2[] = {"Camioneta", cc.getModelo(), cc.getMarca(), cc.getColor(), numero_chasis};
+                modelo.addRow(tab2);
             }
+
         }
 
         jTable1.setModel(modelo);
@@ -930,6 +954,10 @@ public class Cargar extends javax.swing.JPanel {
     private void colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_colorActionPerformed
+
+    private void nro_chasisMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nro_chasisMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nro_chasisMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

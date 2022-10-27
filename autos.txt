@@ -1,1 +1,6 @@
 nro_chasis nro_motor marca color modelo anio cant_puertas
+234234 234234 ford azul 234124 234 3
+234234 234234 ford blanco 234234 234234 3
+423234 234234 ford blanco 234234 234234 3
+234234 234243 ford verde 234234 234234 3
+2342345 234 ford blanco 234 234 3

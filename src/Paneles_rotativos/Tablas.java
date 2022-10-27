@@ -25,8 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Tablas extends javax.swing.JPanel {
 
-    public static int filas_autos = 0, filas_camionetas = 0, filas_ventas = 0;
-
+    //public static int filas_autos = 0, filas_camionetas = 0, filas_ventas = 0;
     // Principal principal = new Principal();
     //   ArrayList<Vehiculo> vehiculo = new ArrayList<Vehiculo>();
     /**
@@ -38,9 +37,6 @@ public class Tablas extends javax.swing.JPanel {
         MuestraTabla();
         colormasvendido();
 
-        
-        
-
     }
 
     public void MuestraTabla() {
@@ -49,60 +45,58 @@ public class Tablas extends javax.swing.JPanel {
 
         jLabel2.setText("Total de autos: " + tab_a.getRowCount());
         jLabel1.setText("Total de camionetas: " + tab_c.getRowCount());
-        jLabel3.setText("Total de ventas: " + Ventas.ventas.size());
+        jLabel3.setText("Total de ventas: " + jTable3.getRowCount());
 
     }
 
-    public static void   colormasvendido() {
-       Colores array[] = new Colores[4];
-        
-        if (Vehiculo.vehiculo.size()!=0){
-            
-            
-            ArrayList <String> ar = new ArrayList();
-            
+    public static void colormasvendido() {
+        Colores array[] = new Colores[4];
+
+        if (Vehiculo.vehiculo.size() != 0) {
+
+            ArrayList<String> ar = new ArrayList();
+
             for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
-                
+
                 ar.add(Vehiculo.vehiculo.get(i).getColor());
             }
             int verde = Collections.frequency(ar, "verde");
             int azul = Collections.frequency(ar, "azul");
             int blanco = Collections.frequency(ar, "blanco");
             int negro = Collections.frequency(ar, "negro");
-            
-            array[0] = new Colores("verde",verde);
-            array[1] = new Colores("azul",azul);
-            array[2] = new Colores("blanco",blanco);
-            array[3] = new Colores("negro",negro);
-             for (int i = 0; i < 4; i++) {
-              System.out.println(array[i]);   
+
+            array[0] = new Colores("verde", verde);
+            array[1] = new Colores("azul", azul);
+            array[2] = new Colores("blanco", blanco);
+            array[3] = new Colores("negro", negro);
+            for (int i = 0; i < 4; i++) {
+                System.out.println(array[i]);
             }
-             System.out.println("\n");
-            
+            System.out.println("\n");
+
             Arrays.sort(array);
-            
-            top1.setText("1 "+array[3].getNombre());
-            if(array[2].getValor()!=0){
-                 top2.setText("2 "+array[2].getNombre());
-                    if(array[1].getValor()!=0)
-                         top3.setText("3 "+array[1].getNombre());
-                    else
-                        top3.setText("3 ");
-            }else {
+
+            top1.setText("1 " + array[3].getNombre());
+            if (array[2].getValor() != 0) {
+                top2.setText("2 " + array[2].getNombre());
+                if (array[1].getValor() != 0) {
+                    top3.setText("3 " + array[1].getNombre());
+                } else {
+                    top3.setText("3 ");
+                }
+            } else {
                 top2.setText("2 ");
                 top3.setText("3 ");
             }
-        }
-        else{
+        } else {
             top1.setText("1 ");
             top2.setText("2 ");
             top3.setText("3 ");
         }
-            
-        
+
     }
 
-    public static void CargadeVentas() {
+    public void CargadeVentas() {
 
         try {
             File ventas = new File("ventas.txt");
@@ -126,7 +120,7 @@ public class Tablas extends javax.swing.JPanel {
 
                 f++;
 
-                filas_ventas = f;
+                //     filas_ventas = f;
             }
 
             ventasb.close();
@@ -135,7 +129,6 @@ public class Tablas extends javax.swing.JPanel {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
     }
 
     public static void CargadeAutosArchivo() {
@@ -161,7 +154,7 @@ public class Tablas extends javax.swing.JPanel {
 
                 f++;
 
-                filas_autos = f;
+                //     filas_autos = f;
             }
 
             autosb.close();
@@ -174,9 +167,30 @@ public class Tablas extends javax.swing.JPanel {
 
     public void Tabla() {
 
-        for (int i = 0; i < Ventas.ventas.size(); i++) {
+        DefaultTableModel modelo2 = new DefaultTableModel();
 
-            Ventas vv = Ventas.ventas.get(i);
+        ArrayList<Object> nombrecolumna = new ArrayList<Object>();
+        nombrecolumna.add("Vehiculo");
+        nombrecolumna.add("DNI");
+        nombrecolumna.add("Telefono");
+        nombrecolumna.add("CUIL");
+        nombrecolumna.add("Nombre");
+        nombrecolumna.add("Apellido");
+        nombrecolumna.add("Correo electronico");
+        nombrecolumna.add("Numero de chasis");
+        nombrecolumna.add("Monto");
+        nombrecolumna.add("Fecha");
+        nombrecolumna.add("Tipo de moneda");
+        nombrecolumna.add("Marca");
+        nombrecolumna.add("Numero de chasis");
+        for (Object columna : nombrecolumna) {
+            modelo2.addColumn(columna);
+        }
+
+        this.tab_a.setModel(modelo2);
+
+        for (int k = 0; k < Ventas.ventas.size(); k++) {
+            Ventas vv = Ventas.ventas.get(k);
 
             String dni = Long.toString(vv.getCliente().getDni());
             String telefono = Long.toString(vv.getCliente().getTelefono());
@@ -184,38 +198,35 @@ public class Tablas extends javax.swing.JPanel {
             String nro_contrato = Integer.toString(vv.getNro_contrato());
             String monto = Float.toString(vv.getMonto());
 
-            String tab[] = {dni, telefono, cuil, vv.getCliente().getNombre(),
+            String tab1[] = {dni, telefono, cuil, vv.getCliente().getNombre(),
                 vv.getCliente().getApellido(), vv.getCliente().getCorreo_e(),
                 nro_contrato, monto, vv.getFecha(), vv.getTpo_moneda(),
                 vv.getMarca(), vv.getNrochasis()};
-
-            DefaultTableModel tablamodelo = (DefaultTableModel) jTable3.getModel();
-
-            // cont++;
-            int rows = tablamodelo.getRowCount();
-
-            for (int j = rows - filas_ventas; j >= 0; j--) {
-                tablamodelo.removeRow(j);
-
-            }
-
-            tablamodelo.addRow(tab);
+            modelo2.addRow(tab1);
 
         }
 
         DefaultTableModel modelo = new DefaultTableModel();
 
-        ArrayList<Object> nombrecolumna = new ArrayList<>();
+        ArrayList<Object> nombrecolumn = new ArrayList<>();
 
-        nombrecolumna.add("Nro Chasis");
-        nombrecolumna.add("Nro Motor");
-        nombrecolumna.add("Color");
-        nombrecolumna.add("Marca");
-        nombrecolumna.add("Modelo");
-        nombrecolumna.add("Anio");
-        nombrecolumna.add("Traccion");
-        nombrecolumna.add("Tipo de cabina");
-        for (Object columna : nombrecolumna) {
+        nombrecolumn.add(
+                "Nro Chasis");
+        nombrecolumn.add(
+                "Nro Motor");
+        nombrecolumn.add(
+                "Color");
+        nombrecolumn.add(
+                "Marca");
+        nombrecolumn.add(
+                "Modelo");
+        nombrecolumn.add(
+                "Anio");
+        nombrecolumn.add(
+                "Traccion");
+        nombrecolumn.add(
+                "Tipo de cabina");
+        for (Object columna : nombrecolumn) {
             modelo.addColumn(columna);
         }
 
@@ -224,20 +235,30 @@ public class Tablas extends javax.swing.JPanel {
         DefaultTableModel modelo1 = new DefaultTableModel();
 
         ArrayList<Object> nombrecolum = new ArrayList<Object>();
-        nombrecolum.add("Nro Chasis");
-        nombrecolum.add("Nro Motor");
-        nombrecolum.add("Color");
-        nombrecolum.add("Marca");
-        nombrecolum.add("Modelo");
-        nombrecolum.add("Anio");
-        nombrecolum.add("Cant puertas");
+
+        nombrecolum.add(
+                "Nro Chasis");
+        nombrecolum.add(
+                "Nro Motor");
+        nombrecolum.add(
+                "Color");
+        nombrecolum.add(
+                "Marca");
+        nombrecolum.add(
+                "Modelo");
+        nombrecolum.add(
+                "Anio");
+        nombrecolum.add(
+                "Cant puertas");
         for (Object columna : nombrecolum) {
             modelo1.addColumn(columna);
         }
 
         this.tab_a.setModel(modelo1);
 
-        for (int k = 0; k < Vehiculo.vehiculo.size(); k++) {
+        for (int k = 0;
+                k < Vehiculo.vehiculo.size();
+                k++) {
 
             if (Vehiculo.vehiculo.get(k) instanceof Camioneta) {
 
@@ -245,9 +266,9 @@ public class Tablas extends javax.swing.JPanel {
                 String numero_chasis = Integer.toString(cb.getNro_chasis());
                 String numero_motor = Integer.toString(cb.getNro_motor());
 
-                String tab[] = {numero_chasis, numero_motor, cb.getColor(), cb.getMarca(), cb.getModelo(), cb.getAnio(), cb.getTraccion(), cb.getTpo_cabina()};
+                String tab3[] = {numero_chasis, numero_motor, cb.getColor(), cb.getMarca(), cb.getModelo(), cb.getAnio(), cb.getTraccion(), cb.getTpo_cabina()};
 
-                modelo.addRow(tab);
+                modelo.addRow(tab3);
             } else {
 
                 Auto cc = (Auto) Vehiculo.vehiculo.get(k);
@@ -256,16 +277,18 @@ public class Tablas extends javax.swing.JPanel {
                 String numero_chasis = Integer.toString(cc.getNro_chasis());
                 String numero_motor = Integer.toString(cc.getNro_motor());
 
-                String tab[] = {numero_chasis, numero_motor, cc.getColor(), cc.getMarca(), cc.getModelo(), cc.getAnio(), cant_puertas};
+                String tab4[] = {numero_chasis, numero_motor, cc.getColor(), cc.getMarca(), cc.getModelo(), cc.getAnio(), cant_puertas};
 
-                modelo1.addRow(tab);
+                modelo1.addRow(tab4);
             }
 
         }
 
         tab_c.setModel(modelo);
+
         tab_a.setModel(modelo1);
 
+        jTable3.setModel(modelo2);
     }
 
     /*
@@ -309,7 +332,7 @@ public class Tablas extends javax.swing.JPanel {
 
                 f++;
 
-                filas_camionetas = f;
+                //       filas_camionetas = f;
             }
             camionetasb.close();
             camionetasr.close();

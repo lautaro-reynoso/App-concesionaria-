@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Paneles_rotativos;
-import static Paneles_rotativos.Tablas.filas_autos;
-import static Paneles_rotativos.Tablas.filas_camionetas;
 import clases.Auto;
 import clases.Camioneta;
 import clases.Vehiculo;
