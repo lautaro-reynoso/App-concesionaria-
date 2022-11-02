@@ -28,3 +28,4 @@ DNI Telefono CUIL Nombre Apellido Correo_e Nro_contrato monto fecha tpo_moneda m
 123 123 243 324 234 23423 234 234 123 ARG ford 34234
 123 34 34534 234 23434 53453 523 42434 234 ARG ford 123
 234 234 234 234 234 234 234 243 234 ARG ford 234234
+4478142 2664888023 20447181429 lautaro reynoso lautireynoso2003@gmail.com 289 290 12/10/22 BTC ford 234234

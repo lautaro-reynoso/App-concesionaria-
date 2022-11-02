@@ -1,2 +1,2 @@
 nro_chasis nro_motor color marca modelo anio traccion tpo_cabina
-234234 123 azul ford 234 234 delantera simple
+12 123 azul ford 123 123 delantera simple

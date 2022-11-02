@@ -281,9 +281,11 @@ public void MostrarPanel(JPanel p) {
        
         cabina1.setEnabled(true);
         puertas1.setEnabled(true);
-        
+        int cont =0;
+        try{
         for (int i = 0 ; i < Vehiculo.vehiculo.size(); i++){
             if (Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(Buscador.getText()) ){
+                
                 if (Vehiculo.vehiculo.get(i) instanceof Auto) {
 
                 Auto cc = (Auto) Vehiculo.vehiculo.get(i);
@@ -332,14 +334,16 @@ public void MostrarPanel(JPanel p) {
                
 
             }
-
-               
             }
-            else{    
-            javax.swing.JOptionPane.showMessageDialog(this, "Error, No se encontro el vehiculo.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        
+              
+        }catch(Exception e ){    
+                javax.swing.JOptionPane.showMessageDialog(this, "Error, No se encontro el vehiculo.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             }
         }
-    }
+    
     
     private void B_buscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_B_buscarMousePressed
         if (Buscador.getText()!= null){
@@ -373,9 +377,9 @@ public void MostrarPanel(JPanel p) {
         catch (IOException ex) {
             Logger.getLogger(Modificar.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+         
     }//GEN-LAST:event_confirmarMousePressed
-
+    
     private void n_chasis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_chasis1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_n_chasis1ActionPerformed
@@ -386,6 +390,7 @@ public void MostrarPanel(JPanel p) {
     public void Modificar (String n_chasis, String n_motor, String anio, String marca, String modelo,
                             String color, String cabina, String puertas, String traccion, int tipo) throws FileNotFoundException, IOException{
        
+        
          if(tipo ==1){
            
             int n = Integer.parseInt(n_chasis);
