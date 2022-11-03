@@ -263,7 +263,7 @@ public class Eliminar extends javax.swing.JPanel {
                                     if(Vehiculo.vehiculo.get(j) instanceof Camioneta){
                                         Camioneta ca = (Camioneta) Vehiculo.vehiculo.get(j);
                                         camionetsb.write("\n");
-                                        camionetsb.write(ca.getNro_motor() + " " + ca.getColor() + " " + ca.getMarca() + " " + ca.getModelo()  + " " + ca.getAnio() + " " + ca.getTraccion()+" "+ca.getTpo_cabina());
+                                        camionetsb.write(ca.getNro_chasis()+ " " + ca.getNro_motor() + " " + ca.getColor() + " " + ca.getMarca() + " " + ca.getModelo()  + " " + ca.getAnio() + " " + ca.getTraccion()+" "+ca.getTpo_cabina());
                                     
                                     }
                                     
@@ -528,7 +528,7 @@ public class Eliminar extends javax.swing.JPanel {
                                     if(Vehiculo.vehiculo.get(j) instanceof Auto){
                                         Auto ca = (Auto) Vehiculo.vehiculo.get(j);
                                         autsb.write("\n");
-                                        autsb.write(ca.getCant_puertas() + " " + ca.getNro_chasis() + " " + ca.getNro_motor() + " " + ca.getMarca() + " " + ca.getColor() + " " + ca.getModelo() + " " + ca.getAnio());
+                                        autsb.write(ca.getNro_chasis() + " " + ca.getNro_motor() + " " + ca.getMarca() + " " + ca.getColor() + " " + ca.getModelo() + " " + ca.getAnio()+ " " + ca.getCant_puertas());
 
                                     }
                                     
