@@ -1,3 +1,1 @@
 nro_chasis nro_motor marca color modelo anio cant_puertas
-123 234 ford blanco 234 234 3
-2 123 ford azul 123 123 3

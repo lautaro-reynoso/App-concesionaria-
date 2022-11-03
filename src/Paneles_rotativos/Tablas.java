@@ -636,7 +636,7 @@ public class Tablas extends javax.swing.JPanel {
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Buscar", jPanel3);
+        jTabbedPane1.addTab("BUSCAR", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
