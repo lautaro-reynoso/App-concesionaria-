@@ -4,3 +4,4 @@ DNI Telefono CUIL Nombre Apellido Correo_e Nro_contrato monto fecha tpo_moneda m
 4478142 2664888023 20447181429 lautaro reynoso lautireynoso2003@gmail.com 289 290 12/10/22 BTC ford 234234
 123 123 234 345 345 345 234 456 234 ARG ford 12
 123 1231 345 123 345 345 345 345 345 USD ford 923
+45714361 123 204422 joaquin ibarra joaco@gmail.com 20 200 hoy BTC ford 123

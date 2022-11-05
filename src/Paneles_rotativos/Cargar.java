@@ -160,6 +160,12 @@ public class Cargar extends javax.swing.JPanel {
 
         jLabel26.setText("VENTA");
 
+        fecha_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                fecha_vKeyPressed(evt);
+            }
+        });
+
         jLabel29.setText("CUIL:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -343,6 +349,12 @@ public class Cargar extends javax.swing.JPanel {
 
         jLabel15.setText("Año:");
 
+        anio_c.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                anio_cKeyPressed(evt);
+            }
+        });
+
         jLabel28.setText(null);
 
         enviar_btn1.setText(" Enviar ");
@@ -515,6 +527,12 @@ public class Cargar extends javax.swing.JPanel {
         nro_motor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nro_motorActionPerformed(evt);
+            }
+        });
+
+        anio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                anioKeyPressed(evt);
             }
         });
 
@@ -985,6 +1003,45 @@ public class Cargar extends javax.swing.JPanel {
     private void nro_chasis_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nro_chasis_cActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nro_chasis_cActionPerformed
+
+    private void anio_cKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anio_cKeyPressed
+        char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_anio_cKeyPressed
+
+    private void anioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anioKeyPressed
+        char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_anioKeyPressed
+
+    private void fecha_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_vKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_fecha_vKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

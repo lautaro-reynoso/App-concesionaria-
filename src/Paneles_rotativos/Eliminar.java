@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import clases.*;
+import java.awt.Component;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import javax.swing.*;
@@ -76,6 +77,11 @@ public class Eliminar extends javax.swing.JPanel {
                 nro_chasisActionPerformed(evt);
             }
         });
+        nro_chasis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_chasisKeyPressed(evt);
+            }
+        });
 
         jLabel1.setText("Buscar camioneta por numero de chasis:");
 
@@ -130,6 +136,12 @@ public class Eliminar extends javax.swing.JPanel {
         jTabbedPane2.addTab("CAMIONETAS", jPanel1);
 
         jLabel2.setText("Buscar auto por numero de chasis:");
+
+        auto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                autoKeyPressed(evt);
+            }
+        });
 
         tab_auto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -556,6 +568,32 @@ public class Eliminar extends javax.swing.JPanel {
             javax.swing.JOptionPane.showMessageDialog(this, "Error, complete la casilla correctamente.", "ERROR", javax.swing.JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void nro_chasisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_chasisKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_nro_chasisKeyPressed
+
+    private void autoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_autoKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_autoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

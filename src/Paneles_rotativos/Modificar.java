@@ -102,10 +102,21 @@ public void MostrarPanel(JPanel p) {
                 n_chasis1ActionPerformed(evt);
             }
         });
+        n_chasis1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                n_chasis1KeyPressed(evt);
+            }
+        });
 
         jLabel12.setText("cantida de puertas");
 
         jLabel13.setText("Cabina");
+
+        anio1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                anio1KeyPressed(evt);
+            }
+        });
 
         jLabel14.setText("Traccion");
 
@@ -240,6 +251,11 @@ public void MostrarPanel(JPanel p) {
         Buscador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscadorActionPerformed(evt);
+            }
+        });
+        Buscador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BuscadorKeyPressed(evt);
             }
         });
 
@@ -389,6 +405,45 @@ public void MostrarPanel(JPanel p) {
     private void n_motor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_motor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_n_motor1ActionPerformed
+
+    private void BuscadorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BuscadorKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_BuscadorKeyPressed
+
+    private void anio1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_anio1KeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_anio1KeyPressed
+
+    private void n_chasis1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_n_chasis1KeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+            
+        }
+    }//GEN-LAST:event_n_chasis1KeyPressed
     public void Modificar (String n_chasis, String n_motor, String anio, String marca, String modelo,
                             String color, String cabina, String puertas, String traccion, int tipo) throws FileNotFoundException, IOException{
        
