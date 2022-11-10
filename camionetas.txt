@@ -1,2 +1,3 @@
 nro_chasis nro_motor color marca modelo anio traccion tpo_cabina
-12312 12312 blanco Toyota RAV4 2009 trasera simple
+11 343 azul Ford Ranger 2012 delantera simple
+13 2234234 azul Peugeot 3008 2010 delantera simple

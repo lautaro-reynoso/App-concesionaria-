@@ -583,7 +583,7 @@ public class Tablas extends javax.swing.JPanel {
             }
         });
 
-        marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
+        marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ford", "Volskwagen", "Fiat", "Peugeot", "Toyota" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -660,7 +660,7 @@ public class Tablas extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

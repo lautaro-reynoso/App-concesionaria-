@@ -162,6 +162,30 @@ public class Cargar extends javax.swing.JPanel {
 
         jLabel26.setText("VENTA");
 
+        dni_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dni_vKeyPressed(evt);
+            }
+        });
+
+        telefono_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                telefono_vKeyPressed(evt);
+            }
+        });
+
+        nro_contrato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_contratoKeyPressed(evt);
+            }
+        });
+
+        monto_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                monto_vKeyPressed(evt);
+            }
+        });
+
         fecha_v.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 fecha_vKeyPressed(evt);
@@ -169,6 +193,12 @@ public class Cargar extends javax.swing.JPanel {
         });
 
         jLabel29.setText("CUIL:");
+
+        cuil_v.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cuil_vKeyPressed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -207,7 +237,7 @@ public class Cargar extends javax.swing.JPanel {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel25)
-                                .addGap(85, 668, Short.MAX_VALUE)
+                                .addGap(85, 680, Short.MAX_VALUE)
                                 .addComponent(jLabel31)
                                 .addGap(104, 104, 104))
                             .addGroup(jPanel7Layout.createSequentialGroup()
@@ -342,10 +372,20 @@ public class Cargar extends javax.swing.JPanel {
                 nro_chasis_cActionPerformed(evt);
             }
         });
+        nro_chasis_c.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_chasis_cKeyPressed(evt);
+            }
+        });
 
         nro_motor_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nro_motor_cActionPerformed(evt);
+            }
+        });
+        nro_motor_c.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_motor_cKeyPressed(evt);
             }
         });
 
@@ -382,6 +422,11 @@ public class Cargar extends javax.swing.JPanel {
         });
 
         modelos_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ranger", "Raptor", "F-150", "Maverick" }));
+        modelos_c.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                modelos_cItemStateChanged(evt);
+            }
+        });
         modelos_c.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modelos_cActionPerformed(evt);
@@ -480,7 +525,7 @@ public class Cargar extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 257, Short.MAX_VALUE)
+            .addGap(0, 269, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,7 +553,7 @@ public class Cargar extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CAMIONETAS", jPanel1);
@@ -538,10 +583,20 @@ public class Cargar extends javax.swing.JPanel {
                 nro_chasisMousePressed(evt);
             }
         });
+        nro_chasis.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_chasisKeyPressed(evt);
+            }
+        });
 
         nro_motor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nro_motorActionPerformed(evt);
+            }
+        });
+        nro_motor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nro_motorKeyPressed(evt);
             }
         });
 
@@ -674,14 +729,14 @@ public class Cargar extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(197, 197, 197)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(236, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("AUTOS", jPanel2);
@@ -690,10 +745,7 @@ public class Cargar extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -707,6 +759,13 @@ public class Cargar extends javax.swing.JPanel {
 
 
     private void enviar_btnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btnMousePressed
+        
+        if(Integer.parseInt(anio.getText())<2000||Integer.parseInt(anio.getText())>2022){
+            Component jFrame = null;
+                JOptionPane.showMessageDialog(jFrame,""
+                        + "Error, solo se vende autos desde 2000 hasta 2022");
+        }
+        else{
         try{
         for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
             if(Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(nro_chasis.getText())){
@@ -723,7 +782,7 @@ public class Cargar extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(jFrame,"Error, ya existe un vehiculo con ese numero de chasis");
             
         }
-
+        }
     }//GEN-LAST:event_enviar_btnMousePressed
 
 
@@ -732,7 +791,13 @@ public class Cargar extends javax.swing.JPanel {
     }//GEN-LAST:event_nro_motor_cActionPerformed
 
     private void enviar_btn1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btn1MousePressed
-      try{
+        if(Integer.parseInt(anio_c.getText())<2000||Integer.parseInt(anio_c.getText())>2022){
+            Component jFrame = null;
+                JOptionPane.showMessageDialog(jFrame,""
+                        + "Error, solo se vende autos desde 2000 hasta 2022");
+        }else{
+        
+        try{
         for (int i = 0; i < Vehiculo.vehiculo.size(); i++) {
             if(Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(nro_chasis_c.getText())){
                 throw new Exception();
@@ -747,6 +812,7 @@ public class Cargar extends javax.swing.JPanel {
              Component jFrame = null;
                 JOptionPane.showMessageDialog(jFrame,"Error, ya existe un vehiculo con ese numero de chasis");
             
+        }
         }
     }//GEN-LAST:event_enviar_btn1MousePressed
 
@@ -967,7 +1033,7 @@ public class Cargar extends javax.swing.JPanel {
     }
 
     private void enviar_btn2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar_btn2MousePressed
-
+        
         CargadeVentasInterfaz();
 
         TablaVentas();
@@ -1047,6 +1113,7 @@ public class Cargar extends javax.swing.JPanel {
            Component rootPane = null;
         
            JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           anio_c.setText(null);
             
         }
     }//GEN-LAST:event_anio_cKeyPressed
@@ -1060,7 +1127,7 @@ public class Cargar extends javax.swing.JPanel {
            Component rootPane = null;
         
            JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
-            
+           anio.setText(null);
         }
     }//GEN-LAST:event_anioKeyPressed
 
@@ -1108,7 +1175,7 @@ public class Cargar extends javax.swing.JPanel {
            Component rootPane = null;
         
            JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
-            
+           fecha_v.setText(null);
         }
     }//GEN-LAST:event_fecha_vKeyPressed
 
@@ -1172,6 +1239,127 @@ public class Cargar extends javax.swing.JPanel {
     private void marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_marcaActionPerformed
+
+    private void dni_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dni_vKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           dni_v.setText(null);
+        }
+    }//GEN-LAST:event_dni_vKeyPressed
+
+    private void telefono_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefono_vKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           telefono_v.setText(null);
+        }
+    }//GEN-LAST:event_telefono_vKeyPressed
+
+    private void cuil_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuil_vKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           cuil_v.setText(null);
+        }
+    }//GEN-LAST:event_cuil_vKeyPressed
+
+    private void nro_contratoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_contratoKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           nro_contrato.setText(null);
+        }
+    }//GEN-LAST:event_nro_contratoKeyPressed
+
+    private void monto_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_monto_vKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           monto_v.setText(null);
+        }
+    }//GEN-LAST:event_monto_vKeyPressed
+
+    private void nro_chasis_cKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_chasis_cKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           nro_chasis_c.setText(null);
+        }
+    }//GEN-LAST:event_nro_chasis_cKeyPressed
+
+    private void nro_motor_cKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_motor_cKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           nro_motor_c.setText(null);
+        }
+    }//GEN-LAST:event_nro_motor_cKeyPressed
+
+    private void nro_chasisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_chasisKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           nro_chasis.setText(null);
+        }
+    }//GEN-LAST:event_nro_chasisKeyPressed
+
+    private void nro_motorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nro_motorKeyPressed
+         char validador = evt.getKeyChar();
+        
+        if(Character.isLetter(validador)){
+            getToolkit().beep();
+            evt.consume();
+           Component rootPane = null;
+        
+           JOptionPane.showMessageDialog(rootPane, "Ingrese solo números!  ");
+           nro_motor.setText(null);
+        }
+    }//GEN-LAST:event_nro_motorKeyPressed
+
+    private void modelos_cItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_modelos_cItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modelos_cItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

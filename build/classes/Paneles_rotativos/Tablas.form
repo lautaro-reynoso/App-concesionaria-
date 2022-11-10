@@ -18,7 +18,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="923" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -590,11 +590,12 @@
                 <Component class="javax.swing.JComboBox" name="marca">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="ford"/>
-                        <StringItem index="1" value="volskwagen"/>
-                        <StringItem index="2" value="fiat"/>
-                        <StringItem index="3" value="peugeot"/>
+                      <StringArray count="5">
+                        <StringItem index="0" value="Ford"/>
+                        <StringItem index="1" value="Volskwagen"/>
+                        <StringItem index="2" value="Fiat"/>
+                        <StringItem index="3" value="Peugeot"/>
+                        <StringItem index="4" value="Toyota"/>
                       </StringArray>
                     </Property>
                   </Properties>

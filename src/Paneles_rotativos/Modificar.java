@@ -10,6 +10,7 @@ import clases.Camioneta;
 import clases.Vehiculo;
 import interfaces.Principal;
 import java.awt.Component;
+import java.awt.event.ItemEvent;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -33,7 +35,7 @@ import javax.swing.JPanel;
  */
 public final class Modificar extends javax.swing.JPanel {
 
-   
+    public int tipo;
     public Modificar() {
         
         initComponents();
@@ -44,7 +46,7 @@ public final class Modificar extends javax.swing.JPanel {
         n_chasis1.setText(null);
         n_motor1.setText(null);
   
-        modelo1.setText(null);
+        
       
         anio1.setText(null);
     
@@ -70,7 +72,6 @@ public void MostrarPanel(JPanel p) {
         jLabel11 = new javax.swing.JLabel();
         n_chasis1 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        modelo1 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         anio1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -84,6 +85,7 @@ public void MostrarPanel(JPanel p) {
         traccion1 = new javax.swing.JComboBox<>();
         puertas1 = new javax.swing.JComboBox<>();
         color1 = new javax.swing.JComboBox<>();
+        modelo = new javax.swing.JComboBox<>();
         Buscador = new javax.swing.JTextField();
         B_buscar = new javax.swing.JLabel();
 
@@ -138,12 +140,29 @@ public void MostrarPanel(JPanel p) {
         });
 
         marca1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ford", "Volskwagen", "Fiat", "Peugeot" }));
+        marca1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                marca1ItemStateChanged(evt);
+            }
+        });
+        marca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marca1ActionPerformed(evt);
+            }
+        });
 
         traccion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "4x4" }));
 
         puertas1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "4", "5" }));
 
         color1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "azul", "blanco", "verde", "negro" }));
+
+        modelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Focus", "Mondeo", "Fiesta", "Mustantg" }));
+        modelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modeloActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout infoLayout = new javax.swing.GroupLayout(info);
         info.setLayout(infoLayout);
@@ -167,15 +186,15 @@ public void MostrarPanel(JPanel p) {
                                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
                             .addGroup(infoLayout.createSequentialGroup()
-                                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(infoLayout.createSequentialGroup()
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(marca1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(infoLayout.createSequentialGroup()
                                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(modelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(modelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(infoLayout.createSequentialGroup()
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(marca1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,10 +251,10 @@ public void MostrarPanel(JPanel p) {
                     .addComponent(jLabel18)
                     .addComponent(jLabel14)
                     .addComponent(traccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
             .addGroup(infoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(infoLayout.createSequentialGroup()
                     .addGap(62, 62, 62)
@@ -289,9 +308,9 @@ public void MostrarPanel(JPanel p) {
                 .addComponent(Buscador, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(B_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(103, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -305,7 +324,7 @@ public void MostrarPanel(JPanel p) {
             if (Vehiculo.vehiculo.get(i).getNro_chasis() == Integer.parseInt(Buscador.getText()) ){
                 
                 if (Vehiculo.vehiculo.get(i) instanceof Auto) {
-
+                tipo=1;
                 Auto cc = (Auto) Vehiculo.vehiculo.get(i);
 
                 String cant_puertas = Integer.toString(cc.getCant_puertas());
@@ -315,9 +334,9 @@ public void MostrarPanel(JPanel p) {
                 
                 n_chasis1.setText(numero_chasis);
                 n_motor1.setText(numero_motor);
-    
-                modelo1.setText(cc.getModelo());
-           
+                marca1.setSelectedItem(cc.getMarca());
+                modelo.setSelectedItem(cc.getModelo());
+                
                 anio1.setText(cc.getAnio());
                 
                 
@@ -332,7 +351,7 @@ public void MostrarPanel(JPanel p) {
                 
 
             } else {
-
+                tipo=2;
                 Camioneta cb = (Camioneta) Vehiculo.vehiculo.get(i);
 
                 String numero_chasis = Integer.toString(cb.getNro_chasis());
@@ -340,8 +359,9 @@ public void MostrarPanel(JPanel p) {
                 
                 n_chasis1.setText(numero_chasis);
                 n_motor1.setText(numero_motor);
-   
-                modelo1.setText(cb.getModelo());
+                marca1.setSelectedItem(cb.getMarca());
+                modelo.setSelectedItem(cb.getModelo());
+                
          
                 anio1.setText(cb.getAnio());
   
@@ -381,13 +401,18 @@ public void MostrarPanel(JPanel p) {
     }//GEN-LAST:event_BuscadorActionPerformed
 
     private void confirmarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmarMousePressed
-
+         if(Integer.parseInt(anio1.getText())<2000||Integer.parseInt(anio1.getText())>2022){
+            Component jFrame = null;
+                JOptionPane.showMessageDialog(jFrame,""
+                        + "Error, solo se vende autos desde 2000 hasta 2022");
+        }
+         else{
         try {
             if (cabina1.getText().equals("nulo")){
-                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),"nulo", 1 );
+                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), (String) modelo.getSelectedItem(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),"nulo", 1 );
             }
             else{
-                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), modelo1.getText(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 2 );
+                Modificar(n_chasis1.getText(),n_motor1.getText(),anio1.getText(), marca1.getSelectedItem().toString(), (String) modelo.getSelectedItem(),color1.getSelectedItem().toString(),cabina1.getText(),puertas1.getSelectedItem().toString(),traccion1.getSelectedItem().toString(), 2 );
             }
 
         }
@@ -395,7 +420,7 @@ public void MostrarPanel(JPanel p) {
         catch (IOException ex) {
             Logger.getLogger(Modificar.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
+         }
     }//GEN-LAST:event_confirmarMousePressed
     
     private void n_chasis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_n_chasis1ActionPerformed
@@ -444,6 +469,93 @@ public void MostrarPanel(JPanel p) {
             
         }
     }//GEN-LAST:event_n_chasis1KeyPressed
+    public String[] getmodelos(String marca){
+        String[] modelos = new String[4];
+        if(marca.equalsIgnoreCase("Ford"))
+        {
+           modelos[0] = "Focus";
+           modelos[1] = "Fiesta";
+           modelos[2] = "Mondeo";
+           modelos[3] = "Mustang"; 
+        }
+        if(marca.equalsIgnoreCase("Volskwagen"))
+        {
+           modelos[0] = "Golf";
+           modelos[1] = "Polo";
+           modelos[2] = "Vento";
+           modelos[3] = "Gol"; 
+        }
+        
+        if(marca.equalsIgnoreCase("Fiat"))
+        {
+           modelos[0] = "600";
+           modelos[1] = "Argo";
+           modelos[2] = "Cronnos";
+           modelos[3] = "Uno";    
+        }
+        if(marca.equalsIgnoreCase("Peugeot"))
+        {
+           modelos[0] = "208";
+           modelos[1] = "306";
+           modelos[2] = "RCZ";
+           modelos[3] = "408";    
+        }
+        return modelos;
+    }
+    private void modeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeloActionPerformed
+       
+    }//GEN-LAST:event_modeloActionPerformed
+
+    private void marca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marca1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marca1ActionPerformed
+
+      public String[] getmodelos_c(String marca){
+        String[] modelos = new String[4];
+        if(marca.equalsIgnoreCase("Ford"))
+        {
+           modelos[0] = "Ranger";
+           modelos[1] = "Raptor";
+           modelos[2] = "F-150";
+           modelos[3] = "Maverick"; 
+        }
+        if(marca.equalsIgnoreCase("Volskwagen"))
+        {
+           modelos[0] = "Amarok";
+           modelos[1] = "Tarok";
+           modelos[2] = "Saveiro";
+           modelos[3] = "Taos";
+        }
+        
+        if(marca.equalsIgnoreCase("Fiat"))
+        {
+           modelos[0] = "Strada";
+           modelos[1] = "Fullback";
+           modelos[2] = "Toro";
+           modelos[3] = "Pulse";
+        }
+        if(marca.equalsIgnoreCase("Peugeot"))
+        {
+           modelos[0] = "2008";
+           modelos[1] = "3008";
+           modelos[2] = "patner";
+           modelos[3] = "5008";
+        }
+        return modelos;
+    }
+    private void marca1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_marca1ItemStateChanged
+         if(evt.getStateChange() == ItemEvent.SELECTED){
+             if( tipo == 1){
+                 this.modelo.setModel(new DefaultComboBoxModel(this.getmodelos(this.marca1.getSelectedItem().toString())));
+             }
+             else{
+            this.modelo.setModel(new DefaultComboBoxModel(this.getmodelos_c(this.marca1.getSelectedItem().toString()))); 
+            }
+         
+        }
+        
+         
+    }//GEN-LAST:event_marca1ItemStateChanged
     public void Modificar (String n_chasis, String n_motor, String anio, String marca, String modelo,
                             String color, String cabina, String puertas, String traccion, int tipo) throws FileNotFoundException, IOException{
        
@@ -501,7 +613,7 @@ public void MostrarPanel(JPanel p) {
                     n_chasis1.setText(null);
                     n_motor1.setText(null);
                
-                    modelo1.setText(null);
+                   
       
                     anio1.setText(null);
 
@@ -556,7 +668,7 @@ public void MostrarPanel(JPanel p) {
                     n_chasis1.setText(null);
                     n_motor1.setText(null);
                  
-                    modelo1.setText(null);
+                    
        
                     anio1.setText(null);
            
@@ -592,7 +704,7 @@ public void MostrarPanel(JPanel p) {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JComboBox<String> marca1;
-    private javax.swing.JTextField modelo1;
+    private javax.swing.JComboBox<String> modelo;
     private javax.swing.JTextField n_chasis1;
     private javax.swing.JTextField n_motor1;
     private javax.swing.JComboBox<String> puertas1;

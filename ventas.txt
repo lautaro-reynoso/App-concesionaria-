@@ -6,3 +6,5 @@ DNI Telefono CUIL Nombre Apellido Correo_e Nro_contrato monto fecha tpo_moneda m
 123 1231 345 123 345 345 345 345 345 USD ford 923
 45714361 123 204422 joaquin ibarra joaco@gmail.com 20 200 hoy BTC ford 123
 7667324 234 234 324 235 325 234 456 4564 BTC blanco 12783
+345 345345 345 sdf sdf sdf 123123 345 2000 ARG Peugeot 2343
+123345 234345 3425 dfgdfg dfgdfg dfgdfg 234 345 34534 BTC Ford 12312
