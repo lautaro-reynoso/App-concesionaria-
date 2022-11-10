@@ -81,22 +81,22 @@ public class Tablas extends javax.swing.JPanel {
 
             Arrays.sort(array);
 
-            top1.setText("1 " + array[3].getNombre());
+            top1.setText("N°1: " + array[3].getNombre());
             if (array[2].getValor() != 0) {
-                top2.setText("2 " + array[2].getNombre());
+                top2.setText("N°2: " + array[2].getNombre());
                 if (array[1].getValor() != 0) {
-                    top3.setText("3 " + array[1].getNombre());
+                    top3.setText("N°3: " + array[1].getNombre());
                 } else {
-                    top3.setText("3 ");
+                    top3.setText("N°3: ");
                 }
             } else {
-                top2.setText("2 ");
-                top3.setText("3 ");
+                top2.setText("N°2: ");
+                top3.setText("N°3: ");
             }
         } else {
-            top1.setText("1 ");
-            top2.setText("2 ");
-            top3.setText("3 ");
+            top1.setText("N°1: ");
+            top2.setText("N°2: ");
+            top3.setText("N°3: ");
         }
 
     }

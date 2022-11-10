@@ -1,1 +1,2 @@
 nro_chasis nro_motor color marca modelo anio traccion tpo_cabina
+12312 12312 blanco Toyota RAV4 2009 trasera simple
