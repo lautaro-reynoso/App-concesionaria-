@@ -280,10 +280,11 @@ public class Eliminar extends javax.swing.JPanel {
                                     }
                                     
                     }
-                    camionetsb.close();
-                    camionetsr.close();
                     Tablas.CargadeCamionetasArchivo();
                     cargade_camioneta();
+                    camionetsb.close();
+                    camionetsr.close();
+                    
                     }
         
                 }
@@ -545,10 +546,11 @@ public class Eliminar extends javax.swing.JPanel {
                                     }
                                     
                     }
-                    autsb.close();
-                    autsr.close();
                     Tablas.CargadeAutosArchivo();
                     cargade_auto();
+                    autsb.close();
+                    autsr.close();
+                    
                     }
         
                 }

@@ -7,6 +7,7 @@ package Paneles_rotativos;
 import clases.*;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.event.ItemEvent;
 import java.io.BufferedReader;
 
 import java.io.Writer;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -93,7 +95,6 @@ public class Cargar extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         nro_chasis_c = new javax.swing.JTextField();
         nro_motor_c = new javax.swing.JTextField();
-        modelo_c = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         anio_c = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
@@ -103,6 +104,7 @@ public class Cargar extends javax.swing.JPanel {
         tpo_cabina_c = new javax.swing.JComboBox<>();
         traccion_c = new javax.swing.JComboBox<>();
         marca_c = new javax.swing.JComboBox<>();
+        modelos_c = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -115,13 +117,13 @@ public class Cargar extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         nro_chasis = new javax.swing.JTextField();
         nro_motor = new javax.swing.JTextField();
-        modelo = new javax.swing.JTextField();
         anio = new javax.swing.JTextField();
         enviar_btn = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         color = new javax.swing.JComboBox<>();
         cdad_puertas = new javax.swing.JComboBox<>();
         marca = new javax.swing.JComboBox<>();
+        Modelos = new javax.swing.JComboBox<>();
 
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -372,7 +374,19 @@ public class Cargar extends javax.swing.JPanel {
 
         traccion_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "delantera", "trasera", "4x4" }));
 
-        marca_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
+        marca_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ford", "Volskwagen", "Fiat", "Toyota" }));
+        marca_c.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                marca_cItemStateChanged(evt);
+            }
+        });
+
+        modelos_c.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ranger", "Raptor", "F-150", "Maverick" }));
+        modelos_c.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modelos_cActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -389,18 +403,22 @@ public class Cargar extends javax.swing.JPanel {
                                 .addComponent(nro_motor_c, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(modelo_c, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(anio_c, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(color_c, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(traccion_c, 0, 120, Short.MAX_VALUE)
-                                    .addComponent(marca_c, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(marca_c, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(modelos_c, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -442,10 +460,10 @@ public class Cargar extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(marca_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addGap(9, 9, 9)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(modelo_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modelos_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -466,7 +484,7 @@ public class Cargar extends javax.swing.JPanel {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 257, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,22 +496,23 @@ public class Cargar extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 204, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 250, Short.MAX_VALUE)))
+                .addGap(197, 197, 197)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(307, 307, 307)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CAMIONETAS", jPanel1);
@@ -556,7 +575,24 @@ public class Cargar extends javax.swing.JPanel {
 
         cdad_puertas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "4", "5" }));
 
-        marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ford", "volskwagen", "fiat", "peugeot" }));
+        marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ford", "Volskwagen", "Fiat", "Peugeot" }));
+        marca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                marcaItemStateChanged(evt);
+            }
+        });
+        marca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                marcaActionPerformed(evt);
+            }
+        });
+
+        Modelos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Focus", "Mondeo", "Fiesta", "Mustantg" }));
+        Modelos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModelosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -581,10 +617,10 @@ public class Cargar extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel30)
-                            .addComponent(modelo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(anio, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(color, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(marca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(marca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Modelos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -618,17 +654,17 @@ public class Cargar extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
-                    .addComponent(modelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Modelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(anio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel30)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(enviar_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -638,16 +674,16 @@ public class Cargar extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(204, 204, 204)
+                .addGap(197, 197, 197)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(30, 30, 30)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("AUTOS", jPanel2);
@@ -726,9 +762,9 @@ public class Cargar extends javax.swing.JPanel {
 
             autosb.write("\n");
 
-            autosb.write(nro_chasis.getText() + " " + nro_motor.getText() + " " + marca.getSelectedItem().toString() + " " + color.getSelectedItem().toString() + " " + modelo.getText() + " " + anio.getText() + " " + cdad_puertas.getSelectedItem().toString());
+            autosb.write(nro_chasis.getText() + " " + nro_motor.getText() + " " + marca.getSelectedItem().toString() + " " + color.getSelectedItem().toString() + " " + Modelos.getSelectedItem().toString() + " " + anio.getText() + " " + cdad_puertas.getSelectedItem().toString());
             //  System.out.println(nro_chasis.getText());
-            Vehiculo auto = new Auto(Integer.parseInt(nro_chasis.getText()), Integer.parseInt(nro_motor.getText()), color.getSelectedItem().toString(), marca.getSelectedItem().toString(), modelo.getText(), anio.getText(), Integer.parseInt(cdad_puertas.getSelectedItem().toString()));
+            Vehiculo auto = new Auto(Integer.parseInt(nro_chasis.getText()), Integer.parseInt(nro_motor.getText()), color.getSelectedItem().toString(), marca.getSelectedItem().toString(), Modelos.getSelectedItem().toString() , anio.getText(), Integer.parseInt(cdad_puertas.getSelectedItem().toString()));
 
             Vehiculo.vehiculo.add(auto);
 
@@ -737,7 +773,7 @@ public class Cargar extends javax.swing.JPanel {
             nro_chasis.setText(null);
             nro_motor.setText(null);
 
-            modelo.setText(null);
+            
             anio.setText(null);
             jLabel30.setText("Enviado con exito.");
 
@@ -847,11 +883,11 @@ public class Cargar extends javax.swing.JPanel {
 
             camionetasb.write("\n");
 
-            camionetasb.write(nro_chasis_c.getText() + " " + nro_motor_c.getText() + " " + color_c.getSelectedItem().toString() + " " + marca_c.getSelectedItem().toString() + " " + modelo_c.getText() + " " + anio_c.getText() + " " + traccion_c.getSelectedItem().toString() + " " + tpo_cabina_c.getSelectedItem().toString());
+            camionetasb.write(nro_chasis_c.getText() + " " + nro_motor_c.getText() + " " + color_c.getSelectedItem().toString() + " " + marca_c.getSelectedItem().toString() + " " + modelos_c.getSelectedItem().toString() + " " + anio_c.getText() + " " + traccion_c.getSelectedItem().toString() + " " + tpo_cabina_c.getSelectedItem().toString());
 
             //cb.getTraccion(), numero_chasis, numero_motor, cb.getColor(), cb.getMarca(), cb.getModelo(), cb.getAnio(), cb.getTpo_cabina()
             //
-            Vehiculo camioneta = new Camioneta(Integer.parseInt(nro_chasis_c.getText()), Integer.parseInt(nro_motor_c.getText()), color_c.getSelectedItem().toString(), marca_c.getSelectedItem().toString(), modelo_c.getText(), anio_c.getText(), traccion_c.getSelectedItem().toString(), tpo_cabina_c.getSelectedItem().toString());
+            Vehiculo camioneta = new Camioneta(Integer.parseInt(nro_chasis_c.getText()), Integer.parseInt(nro_motor_c.getText()), color_c.getSelectedItem().toString(), marca_c.getSelectedItem().toString(), modelos_c.getSelectedItem().toString(), anio_c.getText(), traccion_c.getSelectedItem().toString(), tpo_cabina_c.getSelectedItem().toString());
 
             Vehiculo.vehiculo.add(camioneta);
 
@@ -860,7 +896,7 @@ public class Cargar extends javax.swing.JPanel {
             nro_chasis_c.setText(null);
             nro_motor_c.setText(null);
 
-            modelo_c.setText(null);
+            
             anio_c.setText(null);
 
             jLabel28.setText("Enviado con exito.");
@@ -1030,6 +1066,41 @@ public class Cargar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_anioKeyPressed
 
+                                         
+    public String[] getmodelos_c(String marca){
+        String[] modelos = new String[4];
+        if(marca.equalsIgnoreCase("Ford"))
+        {
+           modelos[0] = "Ranger";
+           modelos[1] = "Raptor";
+           modelos[2] = "F-150";
+           modelos[3] = "Maverick"; 
+        }
+        if(marca.equalsIgnoreCase("Volskwagen"))
+        {
+           modelos[0] = "Amarok";
+           modelos[1] = "Tarok";
+           modelos[2] = "Saveiro";
+           modelos[3] = "Taos";
+        }
+        
+        if(marca.equalsIgnoreCase("Fiat"))
+        {
+           modelos[0] = "Strada";
+           modelos[1] = "Fullback";
+           modelos[2] = "Toro";
+           modelos[3] = "Pulse";
+        }
+        if(marca.equalsIgnoreCase("Toyota"))
+        {
+           modelos[0] = "Hilux";
+           modelos[1] = "SW4";
+           modelos[2] = "RAV4";
+           modelos[3] = "BZ4X";
+        }
+        return modelos;
+    }
+    
     private void fecha_vKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fecha_vKeyPressed
          char validador = evt.getKeyChar();
         
@@ -1043,8 +1114,70 @@ public class Cargar extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_fecha_vKeyPressed
 
+    private void modelos_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelos_cActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modelos_cActionPerformed
+
+    private void marca_cItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_marca_cItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED)
+      {
+          this.modelos_c.setModel(new DefaultComboBoxModel(this.getmodelos_c(this.marca_c.getSelectedItem().toString())));     
+      }
+    }//GEN-LAST:event_marca_cItemStateChanged
+
+    private void ModelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModelosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModelosActionPerformed
+    public String[] getmodelos(String marca){
+        String[] modelos = new String[4];
+        if(marca.equalsIgnoreCase("Ford"))
+        {
+           modelos[0] = "Focus";
+           modelos[1] = "Fiesta";
+           modelos[2] = "Mondeo";
+           modelos[3] = "Mustang"; 
+        }
+        if(marca.equalsIgnoreCase("Volskwagen"))
+        {
+           modelos[0] = "Golf";
+           modelos[1] = "Polo";
+           modelos[2] = "Vento";
+           modelos[3] = "Gol"; 
+        }
+        
+        if(marca.equalsIgnoreCase("Fiat"))
+        {
+           modelos[0] = "600";
+           modelos[1] = "Argo";
+           modelos[2] = "Cronnos";
+           modelos[3] = "Uno";    
+        }
+        if(marca.equalsIgnoreCase("Peugeot"))
+        {
+           modelos[0] = "208";
+           modelos[1] = "306";
+           modelos[2] = "RCZ";
+           modelos[3] = "408";    
+        }
+        return modelos;
+    }
+    
+    private void marcaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_marcaItemStateChanged
+        if(evt.getStateChange() == ItemEvent.SELECTED)
+      {
+          this.Modelos.setModel(new DefaultComboBoxModel(this.getmodelos(this.marca.getSelectedItem().toString())));
+           
+      }
+        
+    }//GEN-LAST:event_marcaItemStateChanged
+
+    private void marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_marcaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> Modelos;
     private javax.swing.JTextField anio;
     private javax.swing.JTextField anio_c;
     private javax.swing.JTextField apellido_v;
@@ -1101,8 +1234,7 @@ public class Cargar extends javax.swing.JPanel {
     private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> marca;
     private javax.swing.JComboBox<String> marca_c;
-    private javax.swing.JTextField modelo;
-    private javax.swing.JTextField modelo_c;
+    private javax.swing.JComboBox<String> modelos_c;
     private javax.swing.JTextField monto_v;
     private javax.swing.JTextField nombre_v;
     private javax.swing.JTextField nro_chasis;
