@@ -1,0 +1,4 @@
+nro_chasis nro_motor marca color modelo anio cant_puertas
+123123 234234 Ford blanco Focus 2022 3
+12 345345 Fiat azul 600 2000 3
+28 45 Volskwagen blanco Vento 2022 3
